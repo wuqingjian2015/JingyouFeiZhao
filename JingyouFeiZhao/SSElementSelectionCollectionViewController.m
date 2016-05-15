@@ -8,7 +8,7 @@
 
 #import "SSElementSelectionCollectionViewController.h"
 #import "SSElement.h"
-#import "AppDelegate.h"
+#import "AppDelegate+plistDatabase.h"
 #import "SSProductTableViewController.h"
 #import "SSElementSelectViewController.h"
 @interface SSElementSelectionCollectionViewController ()
@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSMutableArray *selectedElements;
 
 @property (nonatomic, strong) SSElement *selectingElement;
+
+@property (nonatomic, strong) NSMutableArray *selectedIndexPaths;
 
 @end
 
@@ -35,18 +37,21 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 #pragma mark - properties
+-(NSMutableArray*)selectedIndexPaths
+{
+    if (!_selectedIndexPaths) {
+        _selectedIndexPaths = [[NSMutableArray alloc] init];
+    }
+    return _selectedIndexPaths;
+}
 
 -(NSArray*)elements
 {
     if (!_elements) {
         AppDelegate *app = [[UIApplication sharedApplication] delegate];
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (NSDictionary* item in [app elementPlistDatabase]) {
-            SSElement *element = [SSElement elementWithDict:item];
-            [array addObject:element];
-        }
-        _elements = [array copy];
+        _elements = [app elementPlistDatabase];
     }
     return _elements;
 }
@@ -70,6 +75,12 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     }
 }
 
+-(void)disSelectElement:(NSNotification*)notification
+{
+    NSIndexPath *indexPath = notification.userInfo[@"indexPath"];
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,6 +96,7 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     self.collectionView.allowsSelection = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeElement:) name:kSSElementChangeOperationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disSelectElement:) name:kSSElementDisselectOperationNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +106,8 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
 
 -(void)dealloc
 {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSElementDisselectOperationNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSElementChangeOperationNotification object:nil];
 }
 /*
@@ -159,8 +173,6 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
 
     SSElement *element = [self.elements objectAtIndex:indexPath.row];
     self.selectingElement = element;
-    
-   // [self performSegueWithIdentifier:@"toSelectElementView" sender:self];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -174,8 +186,14 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
             [self.selectedElements removeObject:item];
         }
     }
-    
+#ifdef DEBUG
+    NSLog(@"%@", self.selectedIndexPaths);
+#endif
+    [self.selectedIndexPaths removeObject:indexPath];
+#ifdef DEBUG
+    NSLog(@"%@", self.selectedIndexPaths);
     NSLog(@"%@", self.selectedElements);
+#endif
   //  [self.selectedElements removeObject:[self.elements objectAtIndex:indexPath.row]];
 }
 
@@ -196,22 +214,23 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    static NSMutableArray *indexPaths = nil;
+    //static NSMutableArray *indexPaths = nil;
     if ([segue.identifier isEqualToString:@"toSelectElementView"]) {
-        if(!indexPaths){
-            indexPaths = [[NSMutableArray alloc] init];
-        }
-        
-        for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
-            if (! [indexPaths containsObject:indexPath]) {
+        NSMutableArray *temp = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
+        [temp removeObjectsInArray:self.selectedIndexPaths];
+        for (NSIndexPath *indexPath in temp) {
+           // if (! [self.selectedIndexPaths containsObject:indexPath]) {
                 SSElementSelectViewController *selectVC = (SSElementSelectViewController*)segue.destinationViewController;
-                NSLog(@"%@", [self.collectionView indexPathsForSelectedItems]);
+               // NSLog(@"%@", [self.collectionView indexPathsForSelectedItems]);
                 selectVC.element = [self.elements objectAtIndex:indexPath.row];
+                selectVC.indexPath = indexPath;
                 NSLog(@"passing element %@", selectVC.element);
-            }
+          //  }
+            break;
         }
+        [self.selectedIndexPaths addObjectsFromArray:temp];
         
-        indexPaths = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
+        //indexPaths = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
         
     } else {
         segue = nil; 

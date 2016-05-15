@@ -27,6 +27,24 @@
     return self;
 }
  */
+-(instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        elementName = [aDecoder decodeObjectForKey:@"elementName"];
+        cost = [aDecoder decodeObjectForKey:@"cost"];
+        quantity = [aDecoder decodeObjectForKey:@"quantity"];
+        quantity_unit = [aDecoder decodeObjectForKey:@"quantity_unit"];
+    }
+    return self;
+}
+-(void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:elementName forKey:@"elementName"];
+    [aCoder encodeObject:cost forKey:@"cost"];
+    [aCoder encodeObject:quantity_unit forKey:@"quantity_unit"];
+    [aCoder encodeObject:quantity forKey:@"quantity"];
+}
+
 -(instancetype)initWithDict:(NSDictionary *)dict
 {
     if (self = [super init]) {

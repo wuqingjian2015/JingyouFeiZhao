@@ -9,7 +9,7 @@
 #import "SSProductTableViewController.h"
 #import "SSProduct.h"
 #import "SSProductDetailTableViewController.h"
-#import "AppDelegate.h"
+#import "AppDelegate+plistDatabase.h"
 @interface SSProductTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *products;
@@ -24,15 +24,21 @@
 {
     if (!_products) {
         AppDelegate *app = [[UIApplication sharedApplication] delegate];
-        NSMutableArray *arrayModle = [[NSMutableArray alloc] init];
-        for (NSDictionary* prodcutDict  in app.productPlistDatabase) {
-            SSProduct* product = [SSProduct productWithDict:prodcutDict];
-            [arrayModle addObject:product];
-        }
-        _products = [arrayModle mutableCopy];
+        _products = app.productPlistDatabase;
         
     }
     return _products;
+}
+- (IBAction)changeEditStatus:(UIBarButtonItem *)sender {
+    
+    if ([sender.title isEqualToString:@"Edit"]) {
+          [self setEditing:YES animated:YES];
+        sender.title = @"Done";
+    } else {
+        [self setEditing:NO animated:YES];
+        sender.title = @"Edit";
+    }
+    NSLog(@"change edit status");
 }
 
 #pragma mark - operation
@@ -41,7 +47,7 @@
     NSArray *selectedElements = notification.userInfo[@"selectedElements"];
     if (selectedElements) {
         SSProduct *product = [[SSProduct alloc] init];
-        product.productName = @"new product";
+        product.productName = [NSString stringWithFormat:@"精油皂＃%i", self.products.count + 1];
         product.createdDate = [NSDate date];
         NSMutableArray *arraym = [[NSMutableArray alloc] init];
         for (SSElement *element in selectedElements) {
@@ -61,6 +67,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -104,7 +111,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusedIdentifier];
     }
     SSProduct *product = [self.products objectAtIndex:indexPath.row];
-    
+
     UIImageView *imageView = [cell viewWithTag:101];
     imageView.image = [UIImage imageNamed:@"product.png"];
     
@@ -121,6 +128,14 @@
     return cell;
 }
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    [self.tableView setEditing:editing animated:animated];
+    [self.tableView reloadData];
+    
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -128,7 +143,10 @@
     return YES;
 }
 
-
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleInsert;
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,6 +156,10 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        NSArray *insertIndexPaths = [NSArray arrayWithObjects:indexPath, nil];
+        [self.products insertObject:[[SSProduct alloc] init] atIndex:indexPath.row];
+        [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationRight];
+        NSLog(@"editing.");
     }   
 }
 

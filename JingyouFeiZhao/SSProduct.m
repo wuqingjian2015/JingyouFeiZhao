@@ -13,6 +13,24 @@
 @synthesize createdDate;
 @synthesize composition;
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super init]){
+        productName = [aDecoder decodeObjectForKey:@"productName"];
+        createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
+        composition = [aDecoder decodeObjectForKey:@"composition"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:productName forKey:@"productName"];
+    [aCoder encodeObject:createdDate forKey:@"createdDate"];
+    [aCoder encodeObject:composition forKey:@"composition"];
+}
+
+
 -(instancetype)initWithDict:(NSDictionary *)dict
 {
     if (self = [super init]) {
@@ -20,6 +38,7 @@
     }
     return self;
 }
+
 
 +(instancetype)productWithDict:(NSDictionary *)dict
 {

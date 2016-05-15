@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SSElement.h"
 
-@interface SSProduct : NSObject
+@interface SSProduct : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *productName;
 @property (nonatomic, strong) NSDate *createdDate;
@@ -17,5 +17,8 @@
 
 -(instancetype)initWithDict:(NSDictionary*)dict;
 +(instancetype)productWithDict:(NSDictionary*)dict;
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder;
+-(void)encodeWithCoder:(NSCoder *)aCoder;
 
 @end

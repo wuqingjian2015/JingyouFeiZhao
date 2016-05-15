@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="1220" y="-1284"/>
         </scene>
-        <!--Product Table View Controller-->
+        <!--产品列表-->
         <scene sceneID="o4O-k2-eoJ">
             <objects>
                 <tableViewController id="lEH-uo-oaM" customClass="SSProductTableViewController" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productCell" rowHeight="119" id="JT8-xX-JAs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="10" reuseIdentifier="productCell" rowHeight="119" id="JT8-xX-JAs">
                                 <rect key="frame" x="0.0" y="92" width="320" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JT8-xX-JAs" id="Yf9-bL-XiW">
@@ -71,7 +71,7 @@
                                             <rect key="frame" x="8" y="8" width="105" height="97"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx7-eL-hbh">
-                                            <rect key="frame" x="121" y="62" width="185" height="39"/>
+                                            <rect key="frame" x="121" y="62" width="158" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -94,7 +94,12 @@
                             <outlet property="delegate" destination="lEH-uo-oaM" id="Xbr-Q0-xN5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="078-6m-LA5">
+                    <navigationItem key="navigationItem" title="产品列表" id="078-6m-LA5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="w7Y-lK-krP">
+                            <connections>
+                                <action selector="changeEditStatus:" destination="lEH-uo-oaM" id="Rob-ho-fsy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bfZ-Vo-tJS">
                             <connections>
                                 <segue destination="AmD-80-XoV" kind="show" action="showDetailViewController:sender:" id="Rd1-Fb-vWd"/>
@@ -107,7 +112,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8f-8X-c3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="-182"/>
+            <point key="canvasLocation" x="923" y="-271"/>
         </scene>
         <!--product name-->
         <scene sceneID="5RN-JL-aJw">

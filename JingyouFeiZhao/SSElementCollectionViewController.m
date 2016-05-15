@@ -7,7 +7,7 @@
 //
 
 #import "SSElementCollectionViewController.h"
-#import "AppDelegate.h"
+#import "AppDelegate+plistDatabase.h"
 #import "SSElement.h"
 
 @interface SSElementCollectionViewController ()
@@ -25,12 +25,7 @@ static NSString * const reuseIdentifier = @"elementCell";
 {
     if (!_elements) {
         AppDelegate *app = [[UIApplication sharedApplication] delegate];
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (NSDictionary* item in [app elementPlistDatabase]) {
-            SSElement *element = [SSElement elementWithDict:item];
-            [array addObject:element];
-        }
-        _elements = [array copy];
+        _elements = [app elementPlistDatabase];
     }
     return _elements;
 }

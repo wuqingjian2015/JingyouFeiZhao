@@ -8,7 +8,7 @@
 
 #import "SSElementSelectViewController.h"
 
-#import "AppDelegate.h"
+#import "AppDelegate+plistDatabase.h"
 
 @interface SSElementSelectViewController ()
 
@@ -26,40 +26,20 @@
 @implementation SSElementSelectViewController
 @synthesize quantity = _quantity;
 @synthesize element = _element;
-
+@synthesize indexPath; 
 
 #pragma mark - properties
-/*
--(NSNumber*)quantity
-{
-    if (!_quantity) {
-        _quantity = [NSNumber numberWithInt:0];
-    }
-    return _quantity;
-}
--(void)setQuantity:(NSNumber *)quantity
-{
-    _quantity = quantity;
-}*/
+
 
 #pragma mark - operations
 
-/*
--(void)setElement:(SSElement *)element
-{
-    if (element) {
-        _element = [[SSElement alloc] initWithElement:element];
-    }
-}
-
--(SSElement*)element
-{
-    return _element;
-}
- */
 
 - (IBAction)cancel:(id)sender {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.indexPath, @"indexPath", nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSSElementDisselectOperationNotification object:nil userInfo:userInfo];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)confirm:(UIButton *)sender {
 

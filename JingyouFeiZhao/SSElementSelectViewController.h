@@ -11,5 +11,6 @@
 @interface SSElementSelectViewController : UIViewController
 
 @property (nonatomic, strong) SSElement *element;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end

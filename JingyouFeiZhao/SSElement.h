@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SSElement : NSObject
+@interface SSElement : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *elementName;
 @property (nonatomic, strong) NSNumber *quantity;
 @property (nonatomic, strong) NSNumber *cost;
 @property (nonatomic, strong) NSString *quantity_unit;
 
--(instancetype) initWithElement:(SSElement*)element;
+
+
+-(instancetype) initWithCoder:(NSCoder *)aDecoder;
+-(void) encodeWithCoder:(NSCoder *)aCoder;
 
 -(instancetype)initWithDict:(NSDictionary*)dict;
 +(instancetype)elementWithDict:(NSDictionary*)dict;

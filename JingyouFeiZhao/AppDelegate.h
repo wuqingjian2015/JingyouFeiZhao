@@ -9,20 +9,11 @@
 #import <UIKit/UIKit.h>
 static NSString* kSSProductAddOperationNotification = @"Product.AddOperation.Com.QingjianWu.wwww";
 static NSString *kSSElementChangeOperationNotification = @"Element.ChangeOperation.Com.QingjianWu.wwww";
+static NSString *kSSElementDisselectOperationNotification = @"Element.DisselectOperation.Com.QingjianWu.wwww";
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
--(NSURL*)rootPlistDatabaseUrl;
-
--(NSDictionary*)rootPlistDatabase;
--(NSArray*)productPlistDatabase;
--(NSArray*)pricePlistDatabase;
--(NSDictionary*)priceList;
--(NSArray*)elementPlistDatabase;
-
--(void)saveProducts:(NSArray*)products;
 
 @end
 

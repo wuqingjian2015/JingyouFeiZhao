@@ -8,7 +8,7 @@
 
 #import "SSProductDetailTableViewController.h"
 #import "SSElement.h"
-#import "AppDelegate.h"
+#import "AppDelegate+plistDatabase.h"
 @interface SSProductDetailTableViewController ()
 
 @property (nonatomic, strong) NSArray *composition;

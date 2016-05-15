@@ -10,6 +10,37 @@
 		3F14A6A21CE70FF4006B7DC2 /* SSElementCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6A11CE70FF4006B7DC2 /* SSElementCollectionViewController.m */; };
 		3F14A6A51CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6A41CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m */; };
 		3F14A6A81CE77522006B7DC2 /* SSElementSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6A71CE77522006B7DC2 /* SSElementSelectViewController.m */; };
+		3F14A6AB1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6AA1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m */; };
+		3F14A6CA1CE8228C006B7DC2 /* 白色甘油皂基.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6AC1CE8228C006B7DC2 /* 白色甘油皂基.png */; };
+		3F14A6CB1CE8228C006B7DC2 /* 侧柏.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6AD1CE8228C006B7DC2 /* 侧柏.png */; };
+		3F14A6CC1CE8228C006B7DC2 /* 道格拉斯冷杉.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6AE1CE8228C006B7DC2 /* 道格拉斯冷杉.png */; };
+		3F14A6CD1CE8228C006B7DC2 /* 丁香花蕾.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6AF1CE8228C006B7DC2 /* 丁香花蕾.png */; };
+		3F14A6CE1CE8228C006B7DC2 /* 杜松浆果.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B01CE8228C006B7DC2 /* 杜松浆果.png */; };
+		3F14A6CF1CE8228C006B7DC2 /* 分馏椰子油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B11CE8228C006B7DC2 /* 分馏椰子油.png */; };
+		3F14A6D01CE8228C006B7DC2 /* 佛手柑.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B21CE8228C006B7DC2 /* 佛手柑.png */; };
+		3F14A6D11CE8228C006B7DC2 /* 桂皮.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B31CE8228C006B7DC2 /* 桂皮.png */; };
+		3F14A6D21CE8228C006B7DC2 /* 黑胡椒.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B41CE8228C006B7DC2 /* 黑胡椒.png */; };
+		3F14A6D31CE8228C006B7DC2 /* 快乐鼠尾草.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B51CE8228C006B7DC2 /* 快乐鼠尾草.png */; };
+		3F14A6D41CE8228C006B7DC2 /* 罗勒.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B61CE8228C006B7DC2 /* 罗勒.png */; };
+		3F14A6D51CE8228C006B7DC2 /* 玫瑰花粉.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B71CE8228C006B7DC2 /* 玫瑰花粉.png */; };
+		3F14A6D61CE8228C006B7DC2 /* 柠檬.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B81CE8228C006B7DC2 /* 柠檬.png */; };
+		3F14A6D71CE8228C006B7DC2 /* 肉桂皮油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6B91CE8228C006B7DC2 /* 肉桂皮油.png */; };
+		3F14A6D81CE8228C006B7DC2 /* 乳香油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BA1CE8228C006B7DC2 /* 乳香油.png */; };
+		3F14A6D91CE8228C006B7DC2 /* 生姜油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BB1CE8228C006B7DC2 /* 生姜油.png */; };
+		3F14A6DA1CE8228C006B7DC2 /* 丝柏.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BC1CE8228C006B7DC2 /* 丝柏.png */; };
+		3F14A6DB1CE8228C006B7DC2 /* 天竺葵油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BD1CE8228C006B7DC2 /* 天竺葵油.png */; };
+		3F14A6DC1CE8228C006B7DC2 /* 透明甘油皂基.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BE1CE8228C006B7DC2 /* 透明甘油皂基.png */; };
+		3F14A6DD1CE8228C006B7DC2 /* 小豆蔻.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6BF1CE8228C006B7DC2 /* 小豆蔻.png */; };
+		3F14A6DE1CE8228C006B7DC2 /* 小茴香.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C01CE8228C006B7DC2 /* 小茴香.png */; };
+		3F14A6DF1CE8228C006B7DC2 /* 雪松.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C11CE8228C006B7DC2 /* 雪松.png */; };
+		3F14A6E01CE8228C006B7DC2 /* 薰衣草.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C21CE8228C006B7DC2 /* 薰衣草.png */; };
+		3F14A6E11CE8228C006B7DC2 /* 芫荽叶.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C31CE8228C006B7DC2 /* 芫荽叶.png */; };
+		3F14A6E21CE8228C006B7DC2 /* 芫荽油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C41CE8228C006B7DC2 /* 芫荽油.png */; };
+		3F14A6E31CE8228C006B7DC2 /* 依兰.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C51CE8228C006B7DC2 /* 依兰.png */; };
+		3F14A6E41CE8228C006B7DC2 /* 永久花.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C61CE8228C006B7DC2 /* 永久花.png */; };
+		3F14A6E51CE8228C006B7DC2 /* 尤加利树.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C71CE8228C006B7DC2 /* 尤加利树.png */; };
+		3F14A6E61CE8228C006B7DC2 /* 柚皮油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */; };
+		3F14A6E71CE8228C006B7DC2 /* 紫色珠光粉.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */; };
 		3F1D17161CE6A98C00E02492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D17151CE6A98C00E02492 /* main.m */; };
 		3F1D17191CE6A98C00E02492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D17181CE6A98C00E02492 /* AppDelegate.m */; };
 		3F1D171C1CE6A98C00E02492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D171B1CE6A98C00E02492 /* ViewController.m */; };
@@ -51,6 +82,38 @@
 		3F14A6A41CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSElementSelectionCollectionViewController.m; sourceTree = "<group>"; };
 		3F14A6A61CE77522006B7DC2 /* SSElementSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSElementSelectViewController.h; sourceTree = "<group>"; };
 		3F14A6A71CE77522006B7DC2 /* SSElementSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSElementSelectViewController.m; sourceTree = "<group>"; };
+		3F14A6A91CE819A8006B7DC2 /* AppDelegate+plistDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+plistDatabase.h"; sourceTree = "<group>"; };
+		3F14A6AA1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+plistDatabase.m"; sourceTree = "<group>"; };
+		3F14A6AC1CE8228C006B7DC2 /* 白色甘油皂基.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白色甘油皂基.png"; sourceTree = "<group>"; };
+		3F14A6AD1CE8228C006B7DC2 /* 侧柏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "侧柏.png"; sourceTree = "<group>"; };
+		3F14A6AE1CE8228C006B7DC2 /* 道格拉斯冷杉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "道格拉斯冷杉.png"; sourceTree = "<group>"; };
+		3F14A6AF1CE8228C006B7DC2 /* 丁香花蕾.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "丁香花蕾.png"; sourceTree = "<group>"; };
+		3F14A6B01CE8228C006B7DC2 /* 杜松浆果.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "杜松浆果.png"; sourceTree = "<group>"; };
+		3F14A6B11CE8228C006B7DC2 /* 分馏椰子油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分馏椰子油.png"; sourceTree = "<group>"; };
+		3F14A6B21CE8228C006B7DC2 /* 佛手柑.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "佛手柑.png"; sourceTree = "<group>"; };
+		3F14A6B31CE8228C006B7DC2 /* 桂皮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "桂皮.png"; sourceTree = "<group>"; };
+		3F14A6B41CE8228C006B7DC2 /* 黑胡椒.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "黑胡椒.png"; sourceTree = "<group>"; };
+		3F14A6B51CE8228C006B7DC2 /* 快乐鼠尾草.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "快乐鼠尾草.png"; sourceTree = "<group>"; };
+		3F14A6B61CE8228C006B7DC2 /* 罗勒.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "罗勒.png"; sourceTree = "<group>"; };
+		3F14A6B71CE8228C006B7DC2 /* 玫瑰花粉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "玫瑰花粉.png"; sourceTree = "<group>"; };
+		3F14A6B81CE8228C006B7DC2 /* 柠檬.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "柠檬.png"; sourceTree = "<group>"; };
+		3F14A6B91CE8228C006B7DC2 /* 肉桂皮油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "肉桂皮油.png"; sourceTree = "<group>"; };
+		3F14A6BA1CE8228C006B7DC2 /* 乳香油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "乳香油.png"; sourceTree = "<group>"; };
+		3F14A6BB1CE8228C006B7DC2 /* 生姜油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "生姜油.png"; sourceTree = "<group>"; };
+		3F14A6BC1CE8228C006B7DC2 /* 丝柏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "丝柏.png"; sourceTree = "<group>"; };
+		3F14A6BD1CE8228C006B7DC2 /* 天竺葵油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天竺葵油.png"; sourceTree = "<group>"; };
+		3F14A6BE1CE8228C006B7DC2 /* 透明甘油皂基.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "透明甘油皂基.png"; sourceTree = "<group>"; };
+		3F14A6BF1CE8228C006B7DC2 /* 小豆蔻.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小豆蔻.png"; sourceTree = "<group>"; };
+		3F14A6C01CE8228C006B7DC2 /* 小茴香.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小茴香.png"; sourceTree = "<group>"; };
+		3F14A6C11CE8228C006B7DC2 /* 雪松.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雪松.png"; sourceTree = "<group>"; };
+		3F14A6C21CE8228C006B7DC2 /* 薰衣草.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "薰衣草.png"; sourceTree = "<group>"; };
+		3F14A6C31CE8228C006B7DC2 /* 芫荽叶.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "芫荽叶.png"; sourceTree = "<group>"; };
+		3F14A6C41CE8228C006B7DC2 /* 芫荽油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "芫荽油.png"; sourceTree = "<group>"; };
+		3F14A6C51CE8228C006B7DC2 /* 依兰.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "依兰.png"; sourceTree = "<group>"; };
+		3F14A6C61CE8228C006B7DC2 /* 永久花.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "永久花.png"; sourceTree = "<group>"; };
+		3F14A6C71CE8228C006B7DC2 /* 尤加利树.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "尤加利树.png"; sourceTree = "<group>"; };
+		3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "柚皮油.png"; sourceTree = "<group>"; };
+		3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "紫色珠光粉.png"; sourceTree = "<group>"; };
 		3F1D17111CE6A98C00E02492 /* JingyouFeiZhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingyouFeiZhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1D17151CE6A98C00E02492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F1D17171CE6A98C00E02492 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +193,8 @@
 			children = (
 				3F1D17171CE6A98C00E02492 /* AppDelegate.h */,
 				3F1D17181CE6A98C00E02492 /* AppDelegate.m */,
+				3F14A6A91CE819A8006B7DC2 /* AppDelegate+plistDatabase.h */,
+				3F14A6AA1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m */,
 				3F1D171A1CE6A98C00E02492 /* ViewController.h */,
 				3F1D171B1CE6A98C00E02492 /* ViewController.m */,
 				3F14A6A01CE70FF4006B7DC2 /* SSElementCollectionViewController.h */,
@@ -186,6 +251,36 @@
 		3FF71BF11CE6F170003886F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3F14A6AC1CE8228C006B7DC2 /* 白色甘油皂基.png */,
+				3F14A6AD1CE8228C006B7DC2 /* 侧柏.png */,
+				3F14A6AE1CE8228C006B7DC2 /* 道格拉斯冷杉.png */,
+				3F14A6AF1CE8228C006B7DC2 /* 丁香花蕾.png */,
+				3F14A6B01CE8228C006B7DC2 /* 杜松浆果.png */,
+				3F14A6B11CE8228C006B7DC2 /* 分馏椰子油.png */,
+				3F14A6B21CE8228C006B7DC2 /* 佛手柑.png */,
+				3F14A6B31CE8228C006B7DC2 /* 桂皮.png */,
+				3F14A6B41CE8228C006B7DC2 /* 黑胡椒.png */,
+				3F14A6B51CE8228C006B7DC2 /* 快乐鼠尾草.png */,
+				3F14A6B61CE8228C006B7DC2 /* 罗勒.png */,
+				3F14A6B71CE8228C006B7DC2 /* 玫瑰花粉.png */,
+				3F14A6B81CE8228C006B7DC2 /* 柠檬.png */,
+				3F14A6B91CE8228C006B7DC2 /* 肉桂皮油.png */,
+				3F14A6BA1CE8228C006B7DC2 /* 乳香油.png */,
+				3F14A6BB1CE8228C006B7DC2 /* 生姜油.png */,
+				3F14A6BC1CE8228C006B7DC2 /* 丝柏.png */,
+				3F14A6BD1CE8228C006B7DC2 /* 天竺葵油.png */,
+				3F14A6BE1CE8228C006B7DC2 /* 透明甘油皂基.png */,
+				3F14A6BF1CE8228C006B7DC2 /* 小豆蔻.png */,
+				3F14A6C01CE8228C006B7DC2 /* 小茴香.png */,
+				3F14A6C11CE8228C006B7DC2 /* 雪松.png */,
+				3F14A6C21CE8228C006B7DC2 /* 薰衣草.png */,
+				3F14A6C31CE8228C006B7DC2 /* 芫荽叶.png */,
+				3F14A6C41CE8228C006B7DC2 /* 芫荽油.png */,
+				3F14A6C51CE8228C006B7DC2 /* 依兰.png */,
+				3F14A6C61CE8228C006B7DC2 /* 永久花.png */,
+				3F14A6C71CE8228C006B7DC2 /* 尤加利树.png */,
+				3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */,
+				3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */,
 				3FF71BEF1CE6F164003886F5 /* jingyou.png */,
 				3F1D17521CE6BBC900E02492 /* product.png */,
 			);
@@ -295,12 +390,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F14A6DA1CE8228C006B7DC2 /* 丝柏.png in Resources */,
+				3F14A6DF1CE8228C006B7DC2 /* 雪松.png in Resources */,
+				3F14A6D91CE8228C006B7DC2 /* 生姜油.png in Resources */,
+				3F14A6E71CE8228C006B7DC2 /* 紫色珠光粉.png in Resources */,
+				3F14A6D81CE8228C006B7DC2 /* 乳香油.png in Resources */,
+				3F14A6DE1CE8228C006B7DC2 /* 小茴香.png in Resources */,
 				3F1D17241CE6A98C00E02492 /* LaunchScreen.storyboard in Resources */,
+				3F14A6E41CE8228C006B7DC2 /* 永久花.png in Resources */,
+				3F14A6E31CE8228C006B7DC2 /* 依兰.png in Resources */,
+				3F14A6DB1CE8228C006B7DC2 /* 天竺葵油.png in Resources */,
+				3F14A6D71CE8228C006B7DC2 /* 肉桂皮油.png in Resources */,
 				3FF71BF01CE6F164003886F5 /* jingyou.png in Resources */,
+				3F14A6D51CE8228C006B7DC2 /* 玫瑰花粉.png in Resources */,
+				3F14A6CE1CE8228C006B7DC2 /* 杜松浆果.png in Resources */,
+				3F14A6CD1CE8228C006B7DC2 /* 丁香花蕾.png in Resources */,
+				3F14A6E11CE8228C006B7DC2 /* 芫荽叶.png in Resources */,
 				3F1D17481CE6AA2100E02492 /* elements.plist in Resources */,
+				3F14A6CA1CE8228C006B7DC2 /* 白色甘油皂基.png in Resources */,
+				3F14A6DD1CE8228C006B7DC2 /* 小豆蔻.png in Resources */,
+				3F14A6CF1CE8228C006B7DC2 /* 分馏椰子油.png in Resources */,
+				3F14A6D11CE8228C006B7DC2 /* 桂皮.png in Resources */,
+				3F14A6D01CE8228C006B7DC2 /* 佛手柑.png in Resources */,
+				3F14A6E01CE8228C006B7DC2 /* 薰衣草.png in Resources */,
+				3F14A6D21CE8228C006B7DC2 /* 黑胡椒.png in Resources */,
 				3F1D17211CE6A98C00E02492 /* Assets.xcassets in Resources */,
 				3F1D17531CE6BBC900E02492 /* product.png in Resources */,
+				3F14A6E61CE8228C006B7DC2 /* 柚皮油.png in Resources */,
+				3F14A6E51CE8228C006B7DC2 /* 尤加利树.png in Resources */,
 				3F1D171F1CE6A98C00E02492 /* Main.storyboard in Resources */,
+				3F14A6DC1CE8228C006B7DC2 /* 透明甘油皂基.png in Resources */,
+				3F14A6CB1CE8228C006B7DC2 /* 侧柏.png in Resources */,
+				3F14A6D31CE8228C006B7DC2 /* 快乐鼠尾草.png in Resources */,
+				3F14A6D41CE8228C006B7DC2 /* 罗勒.png in Resources */,
+				3F14A6CC1CE8228C006B7DC2 /* 道格拉斯冷杉.png in Resources */,
+				3F14A6D61CE8228C006B7DC2 /* 柠檬.png in Resources */,
+				3F14A6E21CE8228C006B7DC2 /* 芫荽油.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +457,7 @@
 				3F1D174E1CE6B05500E02492 /* SSProduct.m in Sources */,
 				3F1D17191CE6A98C00E02492 /* AppDelegate.m in Sources */,
 				3F1D17161CE6A98C00E02492 /* main.m in Sources */,
+				3F14A6AB1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m in Sources */,
 				3FF71BEE1CE6EA4A003886F5 /* SSProductDetailTableViewController.m in Sources */,
 				3F1D174B1CE6B01E00E02492 /* SSProductTableViewController.m in Sources */,
 				3F14A6A81CE77522006B7DC2 /* SSElementSelectViewController.m in Sources */,

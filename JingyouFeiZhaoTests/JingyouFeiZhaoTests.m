@@ -9,10 +9,13 @@
 #import <XCTest/XCTest.h>
 #import "SSElement.h"
 #import "SSProduct.h"
+#import "AppDelegate+plistDatabase.h"
 
 @interface JingyouFeiZhaoTests : XCTestCase
 
 -(void)testProductCreation;
+-(void)testProductSave;
+-(void)testElementSave;
 @end
 
 @implementation JingyouFeiZhaoTests
@@ -31,7 +34,23 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+-(void)testElementSave
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"jingyou" ofType:@"png"];
+    NSString *newPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSLog(@"new path %@", newPath);
+    AppDelegate * app = [[UIApplication sharedApplication] delegate];
+    for (SSElement *element in app.elementPlistDatabase) {
+        NSLog(@"element class %@", [element class]);
+        NSString *imgPath = [newPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", element.elementName]];
+        [[NSFileManager defaultManager] copyItemAtPath:path toPath:imgPath error:nil];
+    }
 
+}
+-(void)testProductSave
+{
+    
+}
 -(void)testProductCreation
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"elements" ofType:@"plist"];
