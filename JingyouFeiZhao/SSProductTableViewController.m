@@ -22,6 +22,7 @@
 
 @implementation SSProductTableViewController
 @synthesize pickingProduct;
+@synthesize productToAdd = _productToAdd; 
 
 #pragma mark - UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -48,6 +49,19 @@
 }
 
 #pragma mark - properties
+
+-(void)setProductToAdd:(SSProduct *)productToAdd
+{
+    if (productToAdd) {
+        _productToAdd = productToAdd;
+        [self.products addObject:productToAdd];
+    }
+}
+
+-(SSProduct*)productToAdd
+{
+    return _productToAdd;
+}
 -(NSMutableArray*)products
 {
     if (!_products) {
@@ -125,7 +139,7 @@
     NSArray *selectedElements = notification.userInfo[@"selectedElements"];
     if (selectedElements) {
         SSProduct *product = [[SSProduct alloc] init];
-        product.productName = [NSString stringWithFormat:@"精油皂＃%lui", self.products.count + 1];
+        product.productName = [NSString stringWithFormat:@"精油皂＃%u", self.products.count + 1];
         product.createdDate = [NSDate date];
         NSMutableArray *arraym = [[NSMutableArray alloc] init];
         for (SSElement *element in selectedElements) {

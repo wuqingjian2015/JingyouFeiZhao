@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SSProduct.h"
 
 
 @interface SSProductTableViewController :UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic, strong) SSProduct* productToAdd; 
 @end

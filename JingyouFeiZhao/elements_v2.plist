@@ -819,7 +819,20 @@
 		</dict>
 	</array>
 	<key>ganzhiwu</key>
-	<array/>
+	<array>
+		<dict>
+			<key>elementName</key>
+			<string>氢氧化钠</string>
+			<key>quantity</key>
+			<integer>1</integer>
+			<key>elementImage</key>
+			<string>氢氧化钠</string>
+			<key>cost</key>
+			<integer>0</integer>
+			<key>quantity_unit</key>
+			<string>g</string>
+		</dict>
+	</array>
 	<key>other</key>
 	<array>
 		<dict>

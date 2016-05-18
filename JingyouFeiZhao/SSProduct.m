@@ -10,9 +10,9 @@
 #import "AppDelegate+plistDatabase.h"
 
 @implementation SSProduct
-@synthesize productName;
-@synthesize createdDate;
-@synthesize composition;
+@synthesize productName = _productName;
+@synthesize createdDate = _createdDate;
+@synthesize composition = _composition;
 @synthesize productImage = _productImage;
 
 #pragma mark - properties
@@ -40,9 +40,9 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if(self = [super init]){
-        productName = [aDecoder decodeObjectForKey:@"productName"];
-        createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
-        composition = [aDecoder decodeObjectForKey:@"composition"];
+        _productName = [aDecoder decodeObjectForKey:@"productName"];
+        _createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
+        _composition = [aDecoder decodeObjectForKey:@"composition"];
         _productImage = [aDecoder decodeObjectForKey:@"productImage"];
         
     }
@@ -51,9 +51,9 @@
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:productName forKey:@"productName"];
-    [aCoder encodeObject:createdDate forKey:@"createdDate"];
-    [aCoder encodeObject:composition forKey:@"composition"];
+    [aCoder encodeObject:_productName forKey:@"productName"];
+    [aCoder encodeObject:_createdDate forKey:@"createdDate"];
+    [aCoder encodeObject:_composition forKey:@"composition"];
     [aCoder encodeObject:_productImage forKey:@"productImage"];
 }
 
@@ -66,15 +66,47 @@
     return self;
 }
 
+-(instancetype)initWithName:(NSString*)name
+{
+    if (self = [super init]) {
+        _productName = name;
+        _createdDate = [NSDate date];
+        _productImage = @"product";
+        _composition = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 +(instancetype)productWithDict:(NSDictionary *)dict
 {
     return [[SSProduct alloc] initWithDict:dict];
 }
 
++(instancetype)productWithName:(NSString*)name
+{
+    return [[SSProduct alloc] initWithName:name];
+}
+
+#pragma mark - methods
+
 -(NSDictionary*)dictionaryValue
 {
     NSDictionary *productDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.productName, @"productName",self.createdDate, @"createdDate", self.composition, @"composition", self.productImage, @"productImage",  nil];
     return [productDict copy];
+}
+
+-(void) addElement:(SSElement*)element
+{
+    if (element) {
+        [self.composition addObject:element];
+    }
+}
+
+
+-(void) addElementsFromArray:(NSArray*)array
+{
+    for (SSElement *element in array) {
+        [self addElement:element];
+    }
 }
 @end

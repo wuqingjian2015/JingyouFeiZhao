@@ -17,13 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZD-7Q-zMa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZD-7Q-zMa">
                                 <rect key="frame" x="127" y="225" width="66" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cQI-Kh-K5q"/>
                                     <constraint firstAttribute="width" constant="66" id="zQ9-YJ-tGr"/>
                                 </constraints>
-                                <state key="normal" title="开始制作"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="开始制作">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <segue destination="bYv-pd-1T5" kind="show" id="2EH-Vg-SFe"/>
                                 </connections>
@@ -40,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX3-ot-yXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="-1845"/>
+            <point key="canvasLocation" x="187" y="-2327"/>
         </scene>
         <!--制作过程-->
         <scene sceneID="xY4-xt-pRr">
@@ -76,6 +84,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="vy0-Wp-x3z" kind="show" identifier="toElementCell" id="3Qq-ZI-Jp4"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -85,13 +96,17 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="制作过程" id="6Yc-1X-MAi">
-                        <barButtonItem key="rightBarButtonItem" title="✅" id="hGm-Hl-RU1"/>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="hGm-Hl-RU1">
+                            <connections>
+                                <segue destination="lEH-uo-oaM" kind="show" identifier="toProductList" id="pp6-67-QZ9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgg-SQ-Me5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="-1850"/>
+            <point key="canvasLocation" x="733" y="-1939"/>
         </scene>
         <!--Element Collection View Controller-->
         <scene sceneID="eUm-Ss-ran">
@@ -158,7 +173,7 @@
                 </pongPressGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="ULO-7x-Cjg"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="-1711"/>
+            <point key="canvasLocation" x="1090" y="-1565"/>
         </scene>
         <!--产品列表-->
         <scene sceneID="o4O-k2-eoJ">
@@ -208,13 +223,7 @@
                             <outlet property="delegate" destination="lEH-uo-oaM" id="Xbr-Q0-xN5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="产品列表" id="078-6m-LA5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bfZ-Vo-tJS">
-                            <connections>
-                                <segue destination="AmD-80-XoV" kind="show" action="showDetailViewController:sender:" id="Rd1-Fb-vWd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="产品列表" id="078-6m-LA5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -226,7 +235,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="851" y="-355"/>
+            <point key="canvasLocation" x="1060" y="-713"/>
         </scene>
         <!--product name-->
         <scene sceneID="5RN-JL-aJw">
@@ -285,6 +294,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eyw-8w-rwC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="产品" image="product2929.png" selectedImage="product2929.png" id="DTT-9S-hfv"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vQH-iu-3tY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -296,7 +306,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfl-4f-9YS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="-168"/>
+            <point key="canvasLocation" x="696" y="-517"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2VY-Nf-jJM">
@@ -317,7 +327,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV1-vB-0MO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-1850"/>
+            <point key="canvasLocation" x="-639" y="-1706"/>
         </scene>
         <!--关于我们-->
         <scene sceneID="ERR-Gw-Kbz">
@@ -370,7 +380,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoK-pv-yCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="-1075"/>
+            <point key="canvasLocation" x="475" y="-1212"/>
         </scene>
         <!--选择成分-->
         <scene sceneID="hxg-JM-UOt">
@@ -441,7 +451,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feC-Ei-0V7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023" y="-1254"/>
+            <point key="canvasLocation" x="1155" y="-2244"/>
         </scene>
         <!--Element Select View Controller-->
         <scene sceneID="EcB-9P-Dy8">
@@ -548,7 +558,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1699" y="-1711"/>
+            <point key="canvasLocation" x="2235" y="-971"/>
         </scene>
         <!--Element Add View Controller-->
         <scene sceneID="cYG-ff-urI">
@@ -682,24 +692,6 @@
             </objects>
             <point key="canvasLocation" x="2523" y="-1781"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0Ic-ZU-2rC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AmD-80-XoV" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gCW-Hb-hgo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vy0-Wp-x3z" kind="relationship" relationship="rootViewController" id="otT-sQ-nsg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Osh-Wd-MgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1538" y="-1119"/>
-        </scene>
         <!--制作-->
         <scene sceneID="tce-GY-M8V">
             <objects>
@@ -718,11 +710,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4T-fZ-UPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="-1821"/>
+            <point key="canvasLocation" x="5" y="-2193"/>
         </scene>
     </scenes>
     <resources>
         <image name="product2929.png" width="29" height="29"/>
         <image name="yes.png" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pp6-67-QZ9"/>
+    </inferredMetricsTieBreakers>
 </document>

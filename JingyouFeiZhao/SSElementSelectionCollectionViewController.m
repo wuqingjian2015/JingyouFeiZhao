@@ -12,7 +12,7 @@
 #import "SSProductTableViewController.h"
 #import "SSElementSelectViewController.h"
 @interface SSElementSelectionCollectionViewController ()
-@property (nonatomic, strong) NSArray *elements;
+
 
 @property (nonatomic, strong) NSMutableArray *selectedElements;
 
@@ -24,20 +24,21 @@
 
 @implementation SSElementSelectionCollectionViewController
 @synthesize selectingElement;
+@synthesize elements = _elements;
 
 static NSString * const reuseIdentifier = @"elementSelectCell";
 
 #pragma mark - operation
 - (IBAction)close:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)addProduct:(UIBarButtonItem *)sender {
     if ([self.selectedElements count] > 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSSProductAddOperationNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self.selectedElements forKey:@"selectedElements"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSSElementAddOperationNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self.selectedElements forKey:@"selectedElements"]];
     }
-
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+   // [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -52,11 +53,18 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
 
 -(NSArray*)elements
 {
+    /*
     if (!_elements) {
         AppDelegate *app = [[UIApplication sharedApplication] delegate];
         _elements = [app elementPlistDatabase];
-    }
+    }*/
+    
     return _elements;
+}
+
+-(void)setElements:(NSArray *)elements
+{
+    _elements = elements;
 }
 
 -(NSArray*)selectedElements

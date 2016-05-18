@@ -11,17 +11,22 @@
 
 @interface SSProduct : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSString *productName;
-@property (nonatomic, strong) NSDate *createdDate;
-@property (nonatomic, strong) NSArray *composition;
-@property (nonatomic, strong) NSString *productImage;
+@property (nonatomic, copy) NSString *productName;
+@property (nonatomic, copy) NSDate *createdDate;
+@property (nonatomic, copy) NSMutableArray *composition;
+@property (nonatomic, copy) NSString *productImage;
 
-
+-(instancetype)initWithName:(NSString*)name;
 -(instancetype)initWithDict:(NSDictionary*)dict;
 +(instancetype)productWithDict:(NSDictionary*)dict;
++(instancetype)productWithName:(NSString*)name;
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder;
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 
--(NSDictionary*)dictionaryValue; 
+-(NSDictionary*)dictionaryValue;
+
+-(void) addElement:(SSElement*)element;
+-(void) addElementsFromArray:(NSArray*)array;
+
 @end

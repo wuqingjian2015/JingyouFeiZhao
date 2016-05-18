@@ -69,6 +69,8 @@
 		3FD2A3141CEC101000772E8E /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3121CEC101000772E8E /* other.png */; };
 		3FD2A3161CEC101C00772E8E /* 氢氧化钠.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3151CEC101C00772E8E /* 氢氧化钠.png */; };
 		3FD2A3181CEC115200772E8E /* ganzhiwu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3171CEC115200772E8E /* ganzhiwu.png */; };
+		3FD2A31B1CEC456A00772E8E /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A31A1CEC456A00772E8E /* Empty.xib */; };
+		3FD2A31E1CEC462300772E8E /* SSButtonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2A31D1CEC462300772E8E /* SSButtonBase.m */; };
 		3FF71BEE1CE6EA4A003886F5 /* SSProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */; };
 		3FF71BF01CE6F164003886F5 /* jingyou.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF71BEF1CE6F164003886F5 /* jingyou.png */; };
 /* End PBXBuildFile section */
@@ -170,6 +172,9 @@
 		3FD2A3121CEC101000772E8E /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
 		3FD2A3151CEC101C00772E8E /* 氢氧化钠.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "氢氧化钠.png"; sourceTree = "<group>"; };
 		3FD2A3171CEC115200772E8E /* ganzhiwu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ganzhiwu.png; sourceTree = "<group>"; };
+		3FD2A31A1CEC456A00772E8E /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Empty.xib; path = views/Empty.xib; sourceTree = "<group>"; };
+		3FD2A31C1CEC462300772E8E /* SSButtonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSButtonBase.h; path = views/SSButtonBase.h; sourceTree = "<group>"; };
+		3FD2A31D1CEC462300772E8E /* SSButtonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSButtonBase.m; path = views/SSButtonBase.m; sourceTree = "<group>"; };
 		3FF71BEC1CE6EA4A003886F5 /* SSProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProductDetailTableViewController.h; sourceTree = "<group>"; };
 		3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductDetailTableViewController.m; sourceTree = "<group>"; };
 		3FF71BEF1CE6F164003886F5 /* jingyou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jingyou.png; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 		3F1D17131CE6A98C00E02492 /* JingyouFeiZhao */ = {
 			isa = PBXGroup;
 			children = (
+				3FD2A3191CEC454900772E8E /* Views */,
 				3F14A6EA1CE870FC006B7DC2 /* Resources */,
 				3F14A6E91CE8703E006B7DC2 /* Controllers */,
 				3F14A6E81CE8702F006B7DC2 /* Model */,
@@ -313,6 +319,16 @@
 				3F1D173B1CE6A98C00E02492 /* Info.plist */,
 			);
 			path = JingyouFeiZhaoUITests;
+			sourceTree = "<group>";
+		};
+		3FD2A3191CEC454900772E8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FD2A31A1CEC456A00772E8E /* Empty.xib */,
+				3FD2A31C1CEC462300772E8E /* SSButtonBase.h */,
+				3FD2A31D1CEC462300772E8E /* SSButtonBase.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3FF71BF11CE6F170003886F5 /* images */ = {
@@ -508,6 +524,7 @@
 				3F14A6D41CE8228C006B7DC2 /* 罗勒.png in Resources */,
 				3F14A6CC1CE8228C006B7DC2 /* 道格拉斯冷杉.png in Resources */,
 				3F14A6EF1CE9672F006B7DC2 /* flash.jpg in Resources */,
+				3FD2A31B1CEC456A00772E8E /* Empty.xib in Resources */,
 				3F14A6D61CE8228C006B7DC2 /* 柠檬.png in Resources */,
 				3F14A6FB1CE97A70006B7DC2 /* contact.png in Resources */,
 				3F14A6E21CE8228C006B7DC2 /* 芫荽油.png in Resources */,
@@ -542,6 +559,7 @@
 				3F14A6F91CE97310006B7DC2 /* SSAboutViewController.m in Sources */,
 				3F14A6A21CE70FF4006B7DC2 /* SSElementCollectionViewController.m in Sources */,
 				3F1D174E1CE6B05500E02492 /* SSProduct.m in Sources */,
+				3FD2A31E1CEC462300772E8E /* SSButtonBase.m in Sources */,
 				3F1D17191CE6A98C00E02492 /* AppDelegate.m in Sources */,
 				3F1D17161CE6A98C00E02492 /* main.m in Sources */,
 				3F14A6AB1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m in Sources */,

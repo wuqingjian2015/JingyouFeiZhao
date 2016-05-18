@@ -8,25 +8,51 @@
 
 #import "SSMakeStepsCollectionViewController.h"
 #import "AppDelegate+plistDatabase.h"
+#import "SSElementSelectionCollectionViewController.h"
+#import "SSProductTableViewController.h"
+
+#import "SSProduct.h"
 
 @interface SSMakeStepsCollectionViewController ()
 
 @property (nonatomic, strong)  NSArray *stepNames;
 @property (nonatomic, strong)  AppDelegate *app;
 
+@property (nonatomic, strong)  NSDictionary *stepsElementMap;
+
+@property (nonatomic, strong) SSProduct *productToAdd;
+
+
 @end
 
 @implementation SSMakeStepsCollectionViewController
 @synthesize stepNames = _stepNames;
 @synthesize app = _app;
+@synthesize stepsElementMap = _stepsElementMap;
+@synthesize productToAdd = _productToAdd;
 
 static NSString * const reuseIdentifier = @"makeStepCell";
 
+-(void)addElement:(NSNotification*)notification
+{
+    NSMutableArray *elementsToAdd = notification.userInfo[@"selectedElements"];
+    [self.productToAdd addElementsFromArray:elementsToAdd];
+}
+
+#pragma mark - properties
 -(AppDelegate*)app{
     if (!_app) {
         _app = [[UIApplication sharedApplication] delegate];
     }
     return _app;
+}
+
+-(SSProduct*)productToAdd
+{
+    if (!_productToAdd) {
+        _productToAdd = [SSProduct productWithName:@"精油皂"];
+    }
+    return _productToAdd;
 }
 
 -(NSArray*)stepNames
@@ -36,6 +62,10 @@ static NSString * const reuseIdentifier = @"makeStepCell";
     }
     return _stepNames;
 }
+
+
+#pragma mark - lifecycle
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +77,8 @@ static NSString * const reuseIdentifier = @"makeStepCell";
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addElement:) name:kSSElementAddOperationNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,15 +86,32 @@ static NSString * const reuseIdentifier = @"makeStepCell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSElementAddOperationNotification object:nil];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"toElementCell"]) {
+        SSElementSelectionCollectionViewController *elementVC = (SSElementSelectionCollectionViewController*)segue.destinationViewController;        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+        if (elementVC) {
+            elementVC.elements = [[self app] getDatabaseByName:[self.stepNames objectAtIndex:indexPath.row]];
+        } else {
+            NSLog(@"target object is nil.");
+        }
+    }
+    if ([segue.identifier isEqualToString:@"toProductList"]) {
+        SSProductTableViewController* productVC = (SSProductTableViewController*)segue.destinationViewController;
+        productVC.productToAdd = self.productToAdd;
+        self.productToAdd = nil;
+    }
 }
-*/
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -85,7 +134,7 @@ static NSString * const reuseIdentifier = @"makeStepCell";
     imageView.image = [UIImage imageNamed:name];
     
     UILabel *nameLabel = [cell.contentView viewWithTag:102];
-    nameLabel.text = name;
+    nameLabel.text = [self.app localizedNamesForStep:name];
     
     return cell;
 }

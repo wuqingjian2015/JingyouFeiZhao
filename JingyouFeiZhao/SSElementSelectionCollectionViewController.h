@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SSElementSelectionCollectionViewController : UICollectionViewController
-
+@property (nonatomic, strong) NSArray *elements;
 @end

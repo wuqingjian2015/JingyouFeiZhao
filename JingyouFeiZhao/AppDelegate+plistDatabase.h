@@ -29,7 +29,9 @@
 -(NSMutableArray*)sesuDatabase;
 -(NSMutableArray*)ganzhiwuDatabase;
 -(NSMutableArray*)otherDatabase;
+-(NSMutableArray*)getDatabaseByName:(NSString*)name;
 
+-(NSString*) localizedNamesForStep:(NSString*)name;
 
 -(void)saveProducts:(NSArray*)products;
 -(void)saveChangeToDatabase;

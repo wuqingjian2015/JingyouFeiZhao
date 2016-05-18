@@ -11,6 +11,11 @@
 
 @implementation AppDelegate (plistDatabase)
 
+-(NSString*) localizedNamesForStep:(NSString*)name;
+{
+    NSDictionary* nameMap =  @{@"jichuyou": @"基础油", @"jingyou":@"精油", @"zaoji":@"皂基",@"sesu":@"色素",@"ganzhiwu":@"干植物",@"other":@"其他"};
+    return nameMap[name];
+}
 -(NSString *)rootPlistDatabaseBasePath
 {
     NSLog(@"base path %@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] );
@@ -52,9 +57,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _elementV2PlistDatabase = [NSDictionary dictionaryWithContentsOfFile:[[self elementV2PlistDatabaseUrl] path]];
+        
     });
     return _elementV2PlistDatabase;
 }
+
 -(NSArray*)elementV2DatabaseNames
 {
     static NSArray *_elementV2DatabaseNames = nil;
@@ -70,7 +77,7 @@
     static NSMutableArray *_jichuyouDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _jichuyouDatabase =[[self elementV2PlistDatabase][@"jichuyou"] mutableCopy];
+        _jichuyouDatabase = [self elementsFromArray:[self elementV2PlistDatabase][@"jichuyou"]];
     });
     return _jichuyouDatabase;
 }
@@ -80,7 +87,7 @@
     static NSMutableArray *_jingyouDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _jingyouDatabase =[[self elementV2PlistDatabase][@"jingyou"] mutableCopy];
+        _jingyouDatabase = [self elementsFromArray:[self elementV2PlistDatabase][@"jingyou"]];
     });
     return _jingyouDatabase;
 }
@@ -89,7 +96,7 @@
     static NSMutableArray *_zaojiDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _zaojiDatabase =[[self elementV2PlistDatabase][@"zaoji"] mutableCopy];
+        _zaojiDatabase =[self elementsFromArray:[self elementV2PlistDatabase][@"zaoji"]];
     });
     return _zaojiDatabase;
 }
@@ -98,7 +105,7 @@
     static NSMutableArray *_sesuDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sesuDatabase =[[self elementV2PlistDatabase][@"sesu"] mutableCopy];
+        _sesuDatabase =[self elementsFromArray:[self elementV2PlistDatabase][@"sesu"]];
     });
     return _sesuDatabase;
 }
@@ -107,7 +114,7 @@
     static NSMutableArray *_ganzhiwuDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _ganzhiwuDatabase =[[self elementV2PlistDatabase][@"ganzhiwu"] mutableCopy];
+        _ganzhiwuDatabase =[self elementsFromArray:[self elementV2PlistDatabase][@"ganzhiwu"]];
     });
     return _ganzhiwuDatabase;
 }
@@ -117,11 +124,20 @@
     static NSMutableArray *_otherDatabase = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _otherDatabase =[[self elementV2PlistDatabase][@"other"] mutableCopy];
+        _otherDatabase =[self elementsFromArray:[self elementV2PlistDatabase][@"other"]];
     });
     return _otherDatabase;
 }
 
+-(NSMutableArray*)getDatabaseByName:(NSString*)name
+{
+    NSString *databaseName = [NSString stringWithFormat:@"%@Database", name];
+    SEL databaseEntry = NSSelectorFromString(databaseName);
+    if ([self respondsToSelector:databaseEntry]) {
+       return [self performSelector:databaseEntry];
+    }
+    return nil;
+}
 
 -(NSDictionary*)rootPlistDatabase
 {
@@ -234,4 +250,15 @@
         NSLog(@"failed to save to %@", [[self rootPlistDatabaseUrl] path]);
     }
 }
+
+-(NSMutableArray*)elementsFromArray:(NSArray*)elementArrays
+{
+    NSMutableArray *elements = [[NSMutableArray alloc] init];
+    for (NSDictionary* dic in elementArrays) {
+        SSElement *element = [[SSElement alloc] initWithDict:dic];
+        [elements addObject:element];
+    }
+    return [elements mutableCopy];
+}
+
 @end
