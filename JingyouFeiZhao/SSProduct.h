@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *productName;
 @property (nonatomic, strong) NSDate *createdDate;
 @property (nonatomic, strong) NSArray *composition;
+@property (nonatomic, strong) NSString *productImage;
+
 
 -(instancetype)initWithDict:(NSDictionary*)dict;
 +(instancetype)productWithDict:(NSDictionary*)dict;
@@ -21,4 +23,5 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder;
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 
+-(NSDictionary*)dictionaryValue; 
 @end

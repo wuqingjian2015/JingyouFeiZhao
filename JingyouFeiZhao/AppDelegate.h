@@ -10,6 +10,10 @@
 static NSString* kSSProductAddOperationNotification = @"Product.AddOperation.Com.QingjianWu.wwww";
 static NSString *kSSElementChangeOperationNotification = @"Element.ChangeOperation.Com.QingjianWu.wwww";
 static NSString *kSSElementDisselectOperationNotification = @"Element.DisselectOperation.Com.QingjianWu.wwww";
+static NSString *kSSElementAddOperationNotification = @"Element.AddOperation.Com.QingjianWu.wwww";
+
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

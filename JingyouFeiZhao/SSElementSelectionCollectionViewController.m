@@ -26,14 +26,17 @@
 @synthesize selectingElement;
 
 static NSString * const reuseIdentifier = @"elementSelectCell";
+
 #pragma mark - operation
 - (IBAction)close:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (IBAction)addProduct:(UIBarButtonItem *)sender {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSSProductAddOperationNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self.selectedElements forKey:@"selectedElements"]];
-    
+    if ([self.selectedElements count] > 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSSProductAddOperationNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self.selectedElements forKey:@"selectedElements"]];
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -110,15 +113,7 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSElementDisselectOperationNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSElementChangeOperationNotification object:nil];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -138,8 +133,10 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     SSElement *element = [self.elements objectAtIndex:indexPath.row];
     
     UIImageView *imageView = [cell.contentView viewWithTag:101];
-    imageView.image = [UIImage imageNamed:element.elementName];
-    
+    imageView.image = [UIImage imageNamed:element.elementImage];
+    if ([element.elementName containsString:@"TEST"]) {
+        NSLog(@"%@", element.elementImage);
+    }
     UILabel *nameLabel = [cell.contentView viewWithTag:102];
     nameLabel.text = element.elementName;
     cell.backgroundColor = [UIColor yellowColor];
@@ -194,7 +191,6 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     NSLog(@"%@", self.selectedIndexPaths);
     NSLog(@"%@", self.selectedElements);
 #endif
-  //  [self.selectedElements removeObject:[self.elements objectAtIndex:indexPath.row]];
 }
 
 /*
@@ -211,30 +207,21 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
 	
 }
 */
-
+#pragma mark - navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //static NSMutableArray *indexPaths = nil;
     if ([segue.identifier isEqualToString:@"toSelectElementView"]) {
         NSMutableArray *temp = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
         [temp removeObjectsInArray:self.selectedIndexPaths];
         for (NSIndexPath *indexPath in temp) {
-           // if (! [self.selectedIndexPaths containsObject:indexPath]) {
                 SSElementSelectViewController *selectVC = (SSElementSelectViewController*)segue.destinationViewController;
-               // NSLog(@"%@", [self.collectionView indexPathsForSelectedItems]);
                 selectVC.element = [self.elements objectAtIndex:indexPath.row];
                 selectVC.indexPath = indexPath;
                 NSLog(@"passing element %@", selectVC.element);
-          //  }
             break;
         }
         [self.selectedIndexPaths addObjectsFromArray:temp];
-        
-        //indexPaths = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
-        
-    } else {
-        segue = nil; 
-    }
+    } 
 }
 
 @end

@@ -11,12 +11,25 @@
 @interface AppDelegate (plistDatabase)
 
 -(NSURL*)rootPlistDatabaseUrl;
+-(NSString *)rootPlistDatabasePath;
 
+-(NSString *)rootPlistDatabaseBasePath;
 -(NSDictionary*)rootPlistDatabase;
 -(NSMutableArray*)productPlistDatabase;
 -(NSArray*)pricePlistDatabase;
 -(NSDictionary*)priceList;
 -(NSMutableArray*)elementPlistDatabase;
+
+-(NSDictionary*)elementV2PlistDatabase;
+-(NSURL*)elementV2PlistDatabaseUrl;
+-(NSArray*)elementV2DatabaseNames; 
+-(NSMutableArray*)jichuyouDatabase;
+-(NSMutableArray*)jingyouDatabase;
+-(NSMutableArray*)zaojiDatabase;
+-(NSMutableArray*)sesuDatabase;
+-(NSMutableArray*)ganzhiwuDatabase;
+-(NSMutableArray*)otherDatabase;
+
 
 -(void)saveProducts:(NSArray*)products;
 -(void)saveChangeToDatabase;

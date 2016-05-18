@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  SSAboutViewController.h
 //  JingyouFeiZhao
 //
-//  Created by caoli on 16/5/14.
+//  Created by caoli on 16/5/16.
 //  Copyright © 2016年 QingjianWu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SSAboutViewController : UIViewController
 
 @end
-

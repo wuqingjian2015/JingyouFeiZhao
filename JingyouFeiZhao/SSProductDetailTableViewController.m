@@ -9,6 +9,8 @@
 #import "SSProductDetailTableViewController.h"
 #import "SSElement.h"
 #import "AppDelegate+plistDatabase.h"
+
+
 @interface SSProductDetailTableViewController ()
 
 @property (nonatomic, strong) NSArray *composition;
@@ -62,7 +64,9 @@ static NSString *reusedIdentifier  = @"productDetailCell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = self.product.productName; 
+    self.navigationItem.title = self.product.productName;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,24 +90,30 @@ static NSString *reusedIdentifier  = @"productDetailCell";
     SSElement *element = [self.composition objectAtIndex:indexPath.row];
     
     UIImageView *imageView = [cell viewWithTag:101];
-    imageView.image = [UIImage imageNamed:@"jingyou.png"];
+    imageView.image = [UIImage imageNamed:element.elementImage];
+    CGRect frame = imageView.frame;
+    frame.size.width = kScreenWidth;
+    frame.size.height = kScreenHeight;
+    imageView.frame = frame;
     
     UILabel *nameLabel = [cell viewWithTag:102];
     nameLabel.text = element.elementName;
     float price = [[self priceDict][element.elementName] floatValue];
     float quantity = [element.quantity floatValue];
     float cost = quantity * price;
+   
+
     
     UILabel *quantityLabel = [cell viewWithTag:103];
     quantityLabel.text = [NSString stringWithFormat:@"%@ %@ %.2f元", element.quantity, element.quantity_unit, cost];
-    
+
     return cell;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
-    UILabel *costLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    UILabel *costLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 0, view.frame.size.width, view.frame.size.height)];
     
 
     float totalCost = 0;

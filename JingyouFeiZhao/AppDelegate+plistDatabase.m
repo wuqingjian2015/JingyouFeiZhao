@@ -11,13 +11,21 @@
 
 @implementation AppDelegate (plistDatabase)
 
-
--(NSURL*)rootPlistDatabaseUrl
+-(NSString *)rootPlistDatabaseBasePath
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentPath = [paths firstObject];
+    NSLog(@"base path %@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] );
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+}
+-(NSString *)rootPlistDatabasePath
+{
+    NSString *documentPath = [self rootPlistDatabaseBasePath];
     NSString *path = [documentPath stringByAppendingPathComponent:@"elements.plist"];
     
+    return path;
+}
+-(NSURL*)rootPlistDatabaseUrl
+{
+    NSString  *path = [self rootPlistDatabasePath];
     NSLog(@"%@", path);
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         return [NSURL URLWithString:path];
@@ -25,6 +33,95 @@
         return [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"elements" ofType:@"plist"]];
     }
 }
+
+-(NSURL*)elementV2PlistDatabaseUrl
+{
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"elements_v2" ofType:@"plist"];
+    NSString *documentPath = [[self rootPlistDatabaseBasePath] stringByAppendingPathComponent:@"elements_v2.plist"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:documentPath]) {
+        return [NSURL URLWithString:documentPath];
+    } else {
+        return [NSURL URLWithString:bundlePath];
+    }
+}
+
+-(NSDictionary*)elementV2PlistDatabase
+{
+    static NSDictionary* _elementV2PlistDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _elementV2PlistDatabase = [NSDictionary dictionaryWithContentsOfFile:[[self elementV2PlistDatabaseUrl] path]];
+    });
+    return _elementV2PlistDatabase;
+}
+-(NSArray*)elementV2DatabaseNames
+{
+    static NSArray *_elementV2DatabaseNames = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _elementV2DatabaseNames = [[[self elementV2PlistDatabase] allKeys] copy];
+    });
+    return _elementV2DatabaseNames;
+}
+
+-(NSMutableArray*)jichuyouDatabase
+{
+    static NSMutableArray *_jichuyouDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _jichuyouDatabase =[[self elementV2PlistDatabase][@"jichuyou"] mutableCopy];
+    });
+    return _jichuyouDatabase;
+}
+
+-(NSMutableArray*)jingyouDatabase
+{
+    static NSMutableArray *_jingyouDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _jingyouDatabase =[[self elementV2PlistDatabase][@"jingyou"] mutableCopy];
+    });
+    return _jingyouDatabase;
+}
+-(NSMutableArray*)zaojiDatabase
+{
+    static NSMutableArray *_zaojiDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _zaojiDatabase =[[self elementV2PlistDatabase][@"zaoji"] mutableCopy];
+    });
+    return _zaojiDatabase;
+}
+-(NSMutableArray*)sesuDatabase
+{
+    static NSMutableArray *_sesuDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sesuDatabase =[[self elementV2PlistDatabase][@"sesu"] mutableCopy];
+    });
+    return _sesuDatabase;
+}
+-(NSMutableArray*)ganzhiwuDatabase
+{
+    static NSMutableArray *_ganzhiwuDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _ganzhiwuDatabase =[[self elementV2PlistDatabase][@"ganzhiwu"] mutableCopy];
+    });
+    return _ganzhiwuDatabase;
+}
+
+-(NSMutableArray*)otherDatabase
+{
+    static NSMutableArray *_otherDatabase = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _otherDatabase =[[self elementV2PlistDatabase][@"other"] mutableCopy];
+    });
+    return _otherDatabase;
+}
+
 
 -(NSDictionary*)rootPlistDatabase
 {
@@ -69,10 +166,10 @@
     dispatch_once(&onceToken, ^{
         NSMutableDictionary* lists = [[NSMutableDictionary alloc] init];
         for (NSDictionary* item in [self pricePlistDatabase]) {
-            float cost = [item[@"cost"] floatValue];
-            float quantity = [item[@"quantity"] floatValue];
-            float price = cost / quantity;
-            lists[item[@"elementName"]] = [NSNumber numberWithFloat:price];
+            SSElement *element = [SSElement elementWithDict:item];
+            NSDictionary *dict = [element priceDictionaryValue];
+            [lists addEntriesFromDictionary:dict];
+           // lists[item[@"elementName"]] = [NSNumber numberWithFloat:price];
         }
         _priceList = [lists mutableCopy];
     });
@@ -94,13 +191,14 @@
     return elementList;
 }
 
+
+
 -(void)saveProducts:(NSArray*)products
 {
     NSMutableDictionary *root = [[self rootPlistDatabase] mutableCopy];
     NSMutableArray *productArray = [[NSMutableArray alloc] init];
     for(SSProduct *product in products ){
-        NSDictionary *productDict = [[NSDictionary alloc] initWithObjectsAndKeys:product.productName, @"productName",product.createdDate, @"createdDate", product.composition, @"composition", nil];
-        [productArray addObject:productDict];
+        [productArray addObject:[product dictionaryValue]];
     }
     root[@"products"] = [productArray copy];
     NSLog(@"%@", [self rootPlistDatabaseUrl]);
@@ -118,15 +216,18 @@
     NSMutableDictionary *root = [[self rootPlistDatabase] mutableCopy];
     NSMutableArray *productArray = [[NSMutableArray alloc] init];
     for(SSProduct *product in [self productPlistDatabase] ){
-        NSDictionary *productDict = [[NSDictionary alloc] initWithObjectsAndKeys:product.productName, @"productName",product.createdDate, @"createdDate", product.composition, @"composition", nil];
-        [productArray addObject:productDict];
+        [productArray addObject:[product dictionaryValue]];
     }
+    
     root[@"products"] = [productArray copy];
-    // root[@"products"] = [self productPlistDatabase];
+
+    NSMutableArray *elementArray = [[NSMutableArray alloc] init];
+    for(SSElement *element in [self elementPlistDatabase]){
+        [elementArray addObject:[element dictionaryValue]];
+    }
+    root[@"elements"] = [elementArray copy];
     
-    NSLog(@"%@", [self rootPlistDatabaseUrl]);
-    
-    if ([root writeToFile:[[self rootPlistDatabaseUrl] path] atomically:YES])
+    if ([root writeToFile:[self rootPlistDatabasePath] atomically:YES])
     {
         NSLog(@"save successfully.");
     } else {

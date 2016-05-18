@@ -10,5 +10,5 @@
 
 
 
-@interface SSProductTableViewController :UITableViewController
+@interface SSProductTableViewController :UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @end

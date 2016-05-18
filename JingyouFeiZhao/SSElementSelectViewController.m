@@ -17,22 +17,26 @@
 
 @property (nonatomic, strong) NSNumber *quantity;
 
-@property (weak, nonatomic) IBOutlet UITextField *statusTextField;
-
 @property (weak, nonatomic) IBOutlet UIStepper *valueSteper;
+@property (weak, nonatomic) IBOutlet UITextField *quantityTextField;
 
 @end
 
 @implementation SSElementSelectViewController
 @synthesize quantity = _quantity;
 @synthesize element = _element;
-@synthesize indexPath; 
+@synthesize indexPath;
+@synthesize quantityTextField;
 
 #pragma mark - properties
 
 
 #pragma mark - operations
 
+
+- (IBAction)dismissKeyboardByTap:(UITapGestureRecognizer *)sender {
+    [self.quantityTextField resignFirstResponder];
+}
 
 - (IBAction)cancel:(id)sender {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.indexPath, @"indexPath", nil];
@@ -54,15 +58,15 @@
 - (IBAction)changeQuantity:(UISlider *)sender {
     //self.quantity = [NSNumber numberWithInt:(int)sender.value];
     self.valueSteper.value = (int)sender.value;
-    self.statusTextField.text = [NSString stringWithFormat:@"%i",(int)sender.value];
-           self.quantity = [NSNumber numberWithInt:(int)sender.value];
+    self.quantityTextField.text = [NSString stringWithFormat:@"%i",(int)sender.value];
+    self.quantity = [NSNumber numberWithInt:(int)sender.value];
     NSLog(@"chang slider.");
    
 }
 - (IBAction)changeQuantityValueBySteper:(UIStepper *)sender {
     self.currentQuantitySlider.value = (int)sender.value;
-    self.statusTextField.text = [NSString stringWithFormat:@"%i",(int)sender.value];
-        self.quantity = [NSNumber numberWithInt:(int)sender.value];
+    self.quantityTextField.text = [NSString stringWithFormat:@"%i",(int)sender.value];
+    self.quantity = [NSNumber numberWithInt:(int)sender.value];
     NSLog(@"change stepper");
 }
 
@@ -77,6 +81,35 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidLayoutSubviews
+{
+    NSLog(@"did layout");
+    
+    float width = kScreenWidth;
+    float height = kScreenHeight;
+    CGRect imageFrame;
+    CGRect otherFrame;
+    UIView *otherView = [self.view viewWithTag:201];
+    UIImageView *imageView = [self.view viewWithTag:202];
+    
+    if(width > height){
+        NSLog(@"lanscape");
+        imageFrame = CGRectMake(10, 20, width/2 - 20, height - 30);
+        otherFrame = CGRectMake(width/2 - 10, height / 2 - 50, width/2 - 20, height - 20);
+        
+        otherView.frame = otherFrame;
+        imageView.frame = imageFrame;
+    } else {
+        NSLog(@"portrait");
+        imageFrame = CGRectMake(10, 20, width - 20, height/2 -30);
+        otherFrame = CGRectMake(10, height / 2 + 50, width - 20, height / 2 - 20);
+        
+        otherView.frame = otherFrame;
+        imageView.frame = imageFrame;
+        
+    }
 }
 
 /*

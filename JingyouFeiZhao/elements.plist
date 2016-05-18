@@ -14,6 +14,8 @@
 			<string>侧柏</string>
 			<key>quantity</key>
 			<integer>5</integer>
+			<key>elementImage</key>
+			<string>侧柏</string>
 			<key>cost</key>
 			<integer>175</integer>
 			<key>quantity_unit</key>
@@ -21,6 +23,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>罗勒</string>
+			<key>elementImage</key>
 			<string>罗勒</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -32,6 +36,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>佛手柑</string>
+			<key>elementImage</key>
+			<string>佛手柑</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -41,6 +47,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>黑胡椒</string>
+			<key>elementImage</key>
 			<string>黑胡椒</string>
 			<key>quantity</key>
 			<integer>5</integer>
@@ -52,6 +60,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>小豆蔻</string>
+			<key>elementImage</key>
+			<string>小豆蔻</string>
 			<key>quantity</key>
 			<integer>5</integer>
 			<key>cost</key>
@@ -61,6 +71,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>桂皮</string>
+			<key>elementImage</key>
 			<string>桂皮</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -72,6 +84,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>雪松</string>
+			<key>elementImage</key>
+			<string>雪松</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -81,6 +95,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>芫荽叶</string>
+			<key>elementImage</key>
 			<string>芫荽叶</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -92,6 +108,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>肉桂皮油</string>
+			<key>elementImage</key>
+			<string>肉桂皮油</string>
 			<key>quantity</key>
 			<integer>5</integer>
 			<key>cost</key>
@@ -101,6 +119,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>快乐鼠尾草</string>
+			<key>elementImage</key>
 			<string>快乐鼠尾草</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -112,6 +132,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>丁香花蕾</string>
+			<key>elementImage</key>
+			<string>丁香花蕾</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -121,6 +143,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>芫荽油</string>
+			<key>elementImage</key>
 			<string>芫荽油</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -132,6 +156,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>丝柏</string>
+			<key>elementImage</key>
+			<string>丝柏</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -141,6 +167,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>道格拉斯冷杉</string>
+			<key>elementImage</key>
 			<string>道格拉斯冷杉</string>
 			<key>quantity</key>
 			<integer>5</integer>
@@ -152,6 +180,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>尤加利树</string>
+			<key>elementImage</key>
+			<string>尤加利树</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -161,6 +191,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>小茴香</string>
+			<key>elementImage</key>
 			<string>小茴香</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -172,6 +204,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>分馏椰子油</string>
+			<key>elementImage</key>
+			<string>分馏椰子油</string>
 			<key>quantity</key>
 			<integer>115</integer>
 			<key>cost</key>
@@ -181,6 +215,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>乳香油</string>
+			<key>elementImage</key>
 			<string>乳香油</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -192,6 +228,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>天竺葵油</string>
+			<key>elementImage</key>
+			<string>天竺葵油</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -201,6 +239,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>生姜油</string>
+			<key>elementImage</key>
 			<string>生姜油</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -212,6 +252,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>柚皮油</string>
+			<key>elementImage</key>
+			<string>柚皮油</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -221,6 +263,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>永久花</string>
+			<key>elementImage</key>
 			<string>永久花</string>
 			<key>quantity</key>
 			<integer>5</integer>
@@ -232,6 +276,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>杜松浆果</string>
+			<key>elementImage</key>
+			<string>杜松浆果</string>
 			<key>quantity</key>
 			<integer>5</integer>
 			<key>cost</key>
@@ -241,6 +287,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>薰衣草</string>
+			<key>elementImage</key>
 			<string>薰衣草</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -252,6 +300,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>柠檬</string>
+			<key>elementImage</key>
+			<string>柠檬</string>
 			<key>quantity</key>
 			<integer>15</integer>
 			<key>cost</key>
@@ -261,6 +311,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>依兰</string>
+			<key>elementImage</key>
 			<string>依兰</string>
 			<key>quantity</key>
 			<integer>15</integer>
@@ -272,6 +324,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>透明甘油皂基</string>
+			<key>elementImage</key>
+			<string>透明甘油皂基</string>
 			<key>quantity</key>
 			<integer>500</integer>
 			<key>cost</key>
@@ -281,6 +335,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>白色甘油皂基</string>
+			<key>elementImage</key>
 			<string>白色甘油皂基</string>
 			<key>quantity</key>
 			<integer>500</integer>
@@ -292,6 +348,8 @@
 		<dict>
 			<key>elementName</key>
 			<string>紫色珠光粉</string>
+			<key>elementImage</key>
+			<string>紫色珠光粉</string>
 			<key>quantity</key>
 			<integer>50</integer>
 			<key>cost</key>
@@ -301,6 +359,8 @@
 		</dict>
 		<dict>
 			<key>elementName</key>
+			<string>玫瑰花粉</string>
+			<key>elementImage</key>
 			<string>玫瑰花粉</string>
 			<key>quantity</key>
 			<integer>100</integer>
@@ -315,13 +375,17 @@
 		<dict>
 			<key>productName</key>
 			<string>精油皂</string>
+			<key>productImage</key>
+			<string>product.png</string>
 			<key>createdDate</key>
 			<date>2016-05-14T01:05:06Z</date>
 			<key>composition</key>
 			<array>
 				<dict>
 					<key>elementName</key>
-					<string>el1</string>
+					<string>侧柏</string>
+					<key>elementImage</key>
+					<string>侧柏</string>
 					<key>quantity</key>
 					<integer>3</integer>
 					<key>cost</key>
@@ -331,27 +395,9 @@
 				</dict>
 				<dict>
 					<key>elementName</key>
-					<string>el2</string>
-					<key>quantity</key>
-					<integer>4</integer>
-					<key>cost</key>
-					<integer>0</integer>
-					<key>quantity_unit</key>
-					<string>ml</string>
-				</dict>
-				<dict>
-					<key>elementName</key>
-					<string>el3</string>
-					<key>quantity</key>
-					<integer>5</integer>
-					<key>cost</key>
-					<integer>0</integer>
-					<key>quantity_unit</key>
-					<string>ml</string>
-				</dict>
-				<dict>
-					<key>elementName</key>
-					<string>el4</string>
+					<string>罗勒</string>
+					<key>elementImage</key>
+					<string>罗勒</string>
 					<key>quantity</key>
 					<integer>7</integer>
 					<key>cost</key>

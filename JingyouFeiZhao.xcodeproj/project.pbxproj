@@ -41,9 +41,17 @@
 		3F14A6E51CE8228C006B7DC2 /* 尤加利树.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C71CE8228C006B7DC2 /* 尤加利树.png */; };
 		3F14A6E61CE8228C006B7DC2 /* 柚皮油.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */; };
 		3F14A6E71CE8228C006B7DC2 /* 紫色珠光粉.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */; };
+		3F14A6ED1CE8B17C006B7DC2 /* SSElementAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6EC1CE8B17C006B7DC2 /* SSElementAddViewController.m */; };
+		3F14A6EF1CE9672F006B7DC2 /* flash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6EE1CE9672F006B7DC2 /* flash.jpg */; };
+		3F14A6F91CE97310006B7DC2 /* SSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A6F81CE97310006B7DC2 /* SSAboutViewController.m */; };
+		3F14A6FB1CE97A70006B7DC2 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6FA1CE97A70006B7DC2 /* contact.png */; };
+		3F14A6FD1CE9895D006B7DC2 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6FC1CE9895D006B7DC2 /* about.html */; };
+		3F14A7001CEA9658006B7DC2 /* no.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6FE1CEA9658006B7DC2 /* no.png */; };
+		3F14A7011CEA9658006B7DC2 /* yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A6FF1CEA9658006B7DC2 /* yes.png */; };
+		3F14A7031CEA9ABB006B7DC2 /* product.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A7021CEA9ABB006B7DC2 /* product.png */; };
+		3F14A7051CEA9FA9006B7DC2 /* product2929.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F14A7041CEA9FA9006B7DC2 /* product2929.png */; };
 		3F1D17161CE6A98C00E02492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D17151CE6A98C00E02492 /* main.m */; };
 		3F1D17191CE6A98C00E02492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D17181CE6A98C00E02492 /* AppDelegate.m */; };
-		3F1D171C1CE6A98C00E02492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D171B1CE6A98C00E02492 /* ViewController.m */; };
 		3F1D171F1CE6A98C00E02492 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D171D1CE6A98C00E02492 /* Main.storyboard */; };
 		3F1D17211CE6A98C00E02492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D17201CE6A98C00E02492 /* Assets.xcassets */; };
 		3F1D17241CE6A98C00E02492 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D17221CE6A98C00E02492 /* LaunchScreen.storyboard */; };
@@ -53,7 +61,14 @@
 		3F1D174B1CE6B01E00E02492 /* SSProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D174A1CE6B01E00E02492 /* SSProductTableViewController.m */; };
 		3F1D174E1CE6B05500E02492 /* SSProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D174D1CE6B05500E02492 /* SSProduct.m */; };
 		3F1D17511CE6B1CC00E02492 /* SSElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D17501CE6B1CC00E02492 /* SSElement.m */; };
-		3F1D17531CE6BBC900E02492 /* product.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D17521CE6BBC900E02492 /* product.png */; };
+		3FD2A3091CEB118F00772E8E /* elements_v2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3081CEB118F00772E8E /* elements_v2.plist */; };
+		3FD2A30C1CEC00F100772E8E /* SSMakeStepsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2A30B1CEC00F100772E8E /* SSMakeStepsCollectionViewController.m */; };
+		3FD2A30E1CEC0FEF00772E8E /* sesu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A30D1CEC0FEF00772E8E /* sesu.png */; };
+		3FD2A3101CEC0FFE00772E8E /* zaoji.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A30F1CEC0FFE00772E8E /* zaoji.png */; };
+		3FD2A3131CEC101000772E8E /* jichuyou.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3111CEC101000772E8E /* jichuyou.png */; };
+		3FD2A3141CEC101000772E8E /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3121CEC101000772E8E /* other.png */; };
+		3FD2A3161CEC101C00772E8E /* 氢氧化钠.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3151CEC101C00772E8E /* 氢氧化钠.png */; };
+		3FD2A3181CEC115200772E8E /* ganzhiwu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2A3171CEC115200772E8E /* ganzhiwu.png */; };
 		3FF71BEE1CE6EA4A003886F5 /* SSProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */; };
 		3FF71BF01CE6F164003886F5 /* jingyou.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF71BEF1CE6F164003886F5 /* jingyou.png */; };
 /* End PBXBuildFile section */
@@ -114,12 +129,21 @@
 		3F14A6C71CE8228C006B7DC2 /* 尤加利树.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "尤加利树.png"; sourceTree = "<group>"; };
 		3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "柚皮油.png"; sourceTree = "<group>"; };
 		3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "紫色珠光粉.png"; sourceTree = "<group>"; };
+		3F14A6EB1CE8B17C006B7DC2 /* SSElementAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSElementAddViewController.h; sourceTree = "<group>"; };
+		3F14A6EC1CE8B17C006B7DC2 /* SSElementAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSElementAddViewController.m; sourceTree = "<group>"; };
+		3F14A6EE1CE9672F006B7DC2 /* flash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flash.jpg; sourceTree = "<group>"; };
+		3F14A6F71CE97310006B7DC2 /* SSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAboutViewController.h; sourceTree = "<group>"; };
+		3F14A6F81CE97310006B7DC2 /* SSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAboutViewController.m; sourceTree = "<group>"; };
+		3F14A6FA1CE97A70006B7DC2 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		3F14A6FC1CE9895D006B7DC2 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		3F14A6FE1CEA9658006B7DC2 /* no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no.png; sourceTree = "<group>"; };
+		3F14A6FF1CEA9658006B7DC2 /* yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes.png; sourceTree = "<group>"; };
+		3F14A7021CEA9ABB006B7DC2 /* product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product.png; sourceTree = "<group>"; };
+		3F14A7041CEA9FA9006B7DC2 /* product2929.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product2929.png; sourceTree = "<group>"; };
 		3F1D17111CE6A98C00E02492 /* JingyouFeiZhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingyouFeiZhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1D17151CE6A98C00E02492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F1D17171CE6A98C00E02492 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F1D17181CE6A98C00E02492 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3F1D171A1CE6A98C00E02492 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3F1D171B1CE6A98C00E02492 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3F1D171E1CE6A98C00E02492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F1D17201CE6A98C00E02492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F1D17231CE6A98C00E02492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,7 +161,15 @@
 		3F1D174D1CE6B05500E02492 /* SSProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProduct.m; sourceTree = "<group>"; };
 		3F1D174F1CE6B1CC00E02492 /* SSElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSElement.h; sourceTree = "<group>"; };
 		3F1D17501CE6B1CC00E02492 /* SSElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSElement.m; sourceTree = "<group>"; };
-		3F1D17521CE6BBC900E02492 /* product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = product.png; sourceTree = "<group>"; };
+		3FD2A3081CEB118F00772E8E /* elements_v2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = elements_v2.plist; sourceTree = "<group>"; };
+		3FD2A30A1CEC00F100772E8E /* SSMakeStepsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMakeStepsCollectionViewController.h; sourceTree = "<group>"; };
+		3FD2A30B1CEC00F100772E8E /* SSMakeStepsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMakeStepsCollectionViewController.m; sourceTree = "<group>"; };
+		3FD2A30D1CEC0FEF00772E8E /* sesu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sesu.png; sourceTree = "<group>"; };
+		3FD2A30F1CEC0FFE00772E8E /* zaoji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zaoji.png; sourceTree = "<group>"; };
+		3FD2A3111CEC101000772E8E /* jichuyou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jichuyou.png; sourceTree = "<group>"; };
+		3FD2A3121CEC101000772E8E /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
+		3FD2A3151CEC101C00772E8E /* 氢氧化钠.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "氢氧化钠.png"; sourceTree = "<group>"; };
+		3FD2A3171CEC115200772E8E /* ganzhiwu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ganzhiwu.png; sourceTree = "<group>"; };
 		3FF71BEC1CE6EA4A003886F5 /* SSProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProductDetailTableViewController.h; sourceTree = "<group>"; };
 		3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductDetailTableViewController.m; sourceTree = "<group>"; };
 		3FF71BEF1CE6F164003886F5 /* jingyou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jingyou.png; sourceTree = "<group>"; };
@@ -168,6 +200,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F14A6E81CE8702F006B7DC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F1D174C1CE6B05500E02492 /* SSProduct.h */,
+				3F1D174F1CE6B1CC00E02492 /* SSElement.h */,
+				3F1D17501CE6B1CC00E02492 /* SSElement.m */,
+				3F1D174D1CE6B05500E02492 /* SSProduct.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3F14A6E91CE8703E006B7DC2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FD2A30A1CEC00F100772E8E /* SSMakeStepsCollectionViewController.h */,
+				3FD2A30B1CEC00F100772E8E /* SSMakeStepsCollectionViewController.m */,
+				3F14A6F71CE97310006B7DC2 /* SSAboutViewController.h */,
+				3F14A6F81CE97310006B7DC2 /* SSAboutViewController.m */,
+				3F14A6EB1CE8B17C006B7DC2 /* SSElementAddViewController.h */,
+				3F14A6EC1CE8B17C006B7DC2 /* SSElementAddViewController.m */,
+				3F1D17171CE6A98C00E02492 /* AppDelegate.h */,
+				3F1D17181CE6A98C00E02492 /* AppDelegate.m */,
+				3F14A6A91CE819A8006B7DC2 /* AppDelegate+plistDatabase.h */,
+				3F14A6AA1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m */,
+				3F14A6A01CE70FF4006B7DC2 /* SSElementCollectionViewController.h */,
+				3F14A6A11CE70FF4006B7DC2 /* SSElementCollectionViewController.m */,
+				3F14A6A61CE77522006B7DC2 /* SSElementSelectViewController.h */,
+				3F14A6A71CE77522006B7DC2 /* SSElementSelectViewController.m */,
+				3F14A6A31CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.h */,
+				3F14A6A41CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m */,
+				3FF71BEC1CE6EA4A003886F5 /* SSProductDetailTableViewController.h */,
+				3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */,
+				3F1D17491CE6B01E00E02492 /* SSProductTableViewController.h */,
+				3F1D174A1CE6B01E00E02492 /* SSProductTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F14A6EA1CE870FC006B7DC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F14A6FE1CEA9658006B7DC2 /* no.png */,
+				3F14A6FF1CEA9658006B7DC2 /* yes.png */,
+				3F14A6FC1CE9895D006B7DC2 /* about.html */,
+				3F14A6FA1CE97A70006B7DC2 /* contact.png */,
+				3F1D17201CE6A98C00E02492 /* Assets.xcassets */,
+				3F1D17221CE6A98C00E02492 /* LaunchScreen.storyboard */,
+				3F1D17251CE6A98C00E02492 /* Info.plist */,
+				3F14A6EE1CE9672F006B7DC2 /* flash.jpg */,
+				3F14A7041CEA9FA9006B7DC2 /* product2929.png */,
+				3F1D17141CE6A98C00E02492 /* Supporting Files */,
+				3F1D17471CE6AA2100E02492 /* elements.plist */,
+				3FF71BF11CE6F170003886F5 /* images */,
+				3F1D171D1CE6A98C00E02492 /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		3F1D17081CE6A98C00E02492 = {
 			isa = PBXGroup;
 			children = (
@@ -191,33 +281,10 @@
 		3F1D17131CE6A98C00E02492 /* JingyouFeiZhao */ = {
 			isa = PBXGroup;
 			children = (
-				3F1D17171CE6A98C00E02492 /* AppDelegate.h */,
-				3F1D17181CE6A98C00E02492 /* AppDelegate.m */,
-				3F14A6A91CE819A8006B7DC2 /* AppDelegate+plistDatabase.h */,
-				3F14A6AA1CE819A8006B7DC2 /* AppDelegate+plistDatabase.m */,
-				3F1D171A1CE6A98C00E02492 /* ViewController.h */,
-				3F1D171B1CE6A98C00E02492 /* ViewController.m */,
-				3F14A6A01CE70FF4006B7DC2 /* SSElementCollectionViewController.h */,
-				3F14A6A11CE70FF4006B7DC2 /* SSElementCollectionViewController.m */,
-				3FF71BF11CE6F170003886F5 /* images */,
-				3F1D171D1CE6A98C00E02492 /* Main.storyboard */,
-				3F14A6A61CE77522006B7DC2 /* SSElementSelectViewController.h */,
-				3F14A6A71CE77522006B7DC2 /* SSElementSelectViewController.m */,
-				3F14A6A31CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.h */,
-				3F14A6A41CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m */,
-				3FF71BEC1CE6EA4A003886F5 /* SSProductDetailTableViewController.h */,
-				3FF71BED1CE6EA4A003886F5 /* SSProductDetailTableViewController.m */,
-				3F1D17491CE6B01E00E02492 /* SSProductTableViewController.h */,
-				3F1D174A1CE6B01E00E02492 /* SSProductTableViewController.m */,
-				3F1D174C1CE6B05500E02492 /* SSProduct.h */,
-				3F1D174F1CE6B1CC00E02492 /* SSElement.h */,
-				3F1D17501CE6B1CC00E02492 /* SSElement.m */,
-				3F1D174D1CE6B05500E02492 /* SSProduct.m */,
-				3F1D17201CE6A98C00E02492 /* Assets.xcassets */,
-				3F1D17221CE6A98C00E02492 /* LaunchScreen.storyboard */,
-				3F1D17251CE6A98C00E02492 /* Info.plist */,
-				3F1D17141CE6A98C00E02492 /* Supporting Files */,
-				3F1D17471CE6AA2100E02492 /* elements.plist */,
+				3F14A6EA1CE870FC006B7DC2 /* Resources */,
+				3F14A6E91CE8703E006B7DC2 /* Controllers */,
+				3F14A6E81CE8702F006B7DC2 /* Model */,
+				3FD2A3081CEB118F00772E8E /* elements_v2.plist */,
 			);
 			path = JingyouFeiZhao;
 			sourceTree = "<group>";
@@ -251,6 +318,12 @@
 		3FF71BF11CE6F170003886F5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3FD2A3171CEC115200772E8E /* ganzhiwu.png */,
+				3FD2A3151CEC101C00772E8E /* 氢氧化钠.png */,
+				3FD2A3111CEC101000772E8E /* jichuyou.png */,
+				3FD2A3121CEC101000772E8E /* other.png */,
+				3FD2A30F1CEC0FFE00772E8E /* zaoji.png */,
+				3FD2A30D1CEC0FEF00772E8E /* sesu.png */,
 				3F14A6AC1CE8228C006B7DC2 /* 白色甘油皂基.png */,
 				3F14A6AD1CE8228C006B7DC2 /* 侧柏.png */,
 				3F14A6AE1CE8228C006B7DC2 /* 道格拉斯冷杉.png */,
@@ -282,7 +355,7 @@
 				3F14A6C81CE8228C006B7DC2 /* 柚皮油.png */,
 				3F14A6C91CE8228C006B7DC2 /* 紫色珠光粉.png */,
 				3FF71BEF1CE6F164003886F5 /* jingyou.png */,
-				3F1D17521CE6BBC900E02492 /* product.png */,
+				3F14A7021CEA9ABB006B7DC2 /* product.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -392,10 +465,15 @@
 			files = (
 				3F14A6DA1CE8228C006B7DC2 /* 丝柏.png in Resources */,
 				3F14A6DF1CE8228C006B7DC2 /* 雪松.png in Resources */,
+				3FD2A3141CEC101000772E8E /* other.png in Resources */,
 				3F14A6D91CE8228C006B7DC2 /* 生姜油.png in Resources */,
 				3F14A6E71CE8228C006B7DC2 /* 紫色珠光粉.png in Resources */,
+				3F14A7031CEA9ABB006B7DC2 /* product.png in Resources */,
 				3F14A6D81CE8228C006B7DC2 /* 乳香油.png in Resources */,
 				3F14A6DE1CE8228C006B7DC2 /* 小茴香.png in Resources */,
+				3FD2A3101CEC0FFE00772E8E /* zaoji.png in Resources */,
+				3F14A6FD1CE9895D006B7DC2 /* about.html in Resources */,
+				3FD2A3161CEC101C00772E8E /* 氢氧化钠.png in Resources */,
 				3F1D17241CE6A98C00E02492 /* LaunchScreen.storyboard in Resources */,
 				3F14A6E41CE8228C006B7DC2 /* 永久花.png in Resources */,
 				3F14A6E31CE8228C006B7DC2 /* 依兰.png in Resources */,
@@ -404,10 +482,12 @@
 				3FF71BF01CE6F164003886F5 /* jingyou.png in Resources */,
 				3F14A6D51CE8228C006B7DC2 /* 玫瑰花粉.png in Resources */,
 				3F14A6CE1CE8228C006B7DC2 /* 杜松浆果.png in Resources */,
+				3FD2A3131CEC101000772E8E /* jichuyou.png in Resources */,
 				3F14A6CD1CE8228C006B7DC2 /* 丁香花蕾.png in Resources */,
 				3F14A6E11CE8228C006B7DC2 /* 芫荽叶.png in Resources */,
 				3F1D17481CE6AA2100E02492 /* elements.plist in Resources */,
 				3F14A6CA1CE8228C006B7DC2 /* 白色甘油皂基.png in Resources */,
+				3FD2A3091CEB118F00772E8E /* elements_v2.plist in Resources */,
 				3F14A6DD1CE8228C006B7DC2 /* 小豆蔻.png in Resources */,
 				3F14A6CF1CE8228C006B7DC2 /* 分馏椰子油.png in Resources */,
 				3F14A6D11CE8228C006B7DC2 /* 桂皮.png in Resources */,
@@ -415,17 +495,23 @@
 				3F14A6E01CE8228C006B7DC2 /* 薰衣草.png in Resources */,
 				3F14A6D21CE8228C006B7DC2 /* 黑胡椒.png in Resources */,
 				3F1D17211CE6A98C00E02492 /* Assets.xcassets in Resources */,
-				3F1D17531CE6BBC900E02492 /* product.png in Resources */,
 				3F14A6E61CE8228C006B7DC2 /* 柚皮油.png in Resources */,
 				3F14A6E51CE8228C006B7DC2 /* 尤加利树.png in Resources */,
 				3F1D171F1CE6A98C00E02492 /* Main.storyboard in Resources */,
+				3FD2A3181CEC115200772E8E /* ganzhiwu.png in Resources */,
+				3FD2A30E1CEC0FEF00772E8E /* sesu.png in Resources */,
+				3F14A7001CEA9658006B7DC2 /* no.png in Resources */,
 				3F14A6DC1CE8228C006B7DC2 /* 透明甘油皂基.png in Resources */,
 				3F14A6CB1CE8228C006B7DC2 /* 侧柏.png in Resources */,
 				3F14A6D31CE8228C006B7DC2 /* 快乐鼠尾草.png in Resources */,
+				3F14A7051CEA9FA9006B7DC2 /* product2929.png in Resources */,
 				3F14A6D41CE8228C006B7DC2 /* 罗勒.png in Resources */,
 				3F14A6CC1CE8228C006B7DC2 /* 道格拉斯冷杉.png in Resources */,
+				3F14A6EF1CE9672F006B7DC2 /* flash.jpg in Resources */,
 				3F14A6D61CE8228C006B7DC2 /* 柠檬.png in Resources */,
+				3F14A6FB1CE97A70006B7DC2 /* contact.png in Resources */,
 				3F14A6E21CE8228C006B7DC2 /* 芫荽油.png in Resources */,
+				3F14A7011CEA9658006B7DC2 /* yes.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,10 +536,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD2A30C1CEC00F100772E8E /* SSMakeStepsCollectionViewController.m in Sources */,
 				3F1D17511CE6B1CC00E02492 /* SSElement.m in Sources */,
 				3F14A6A51CE71DEE006B7DC2 /* SSElementSelectionCollectionViewController.m in Sources */,
+				3F14A6F91CE97310006B7DC2 /* SSAboutViewController.m in Sources */,
 				3F14A6A21CE70FF4006B7DC2 /* SSElementCollectionViewController.m in Sources */,
-				3F1D171C1CE6A98C00E02492 /* ViewController.m in Sources */,
 				3F1D174E1CE6B05500E02492 /* SSProduct.m in Sources */,
 				3F1D17191CE6A98C00E02492 /* AppDelegate.m in Sources */,
 				3F1D17161CE6A98C00E02492 /* main.m in Sources */,
@@ -461,6 +548,7 @@
 				3FF71BEE1CE6EA4A003886F5 /* SSProductDetailTableViewController.m in Sources */,
 				3F1D174B1CE6B01E00E02492 /* SSProductTableViewController.m in Sources */,
 				3F14A6A81CE77522006B7DC2 /* SSElementSelectViewController.m in Sources */,
+				3F14A6ED1CE8B17C006B7DC2 /* SSElementAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JingyouFeiZhao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.QingjianWu.JingyouFeiZhao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -613,6 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JingyouFeiZhao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.QingjianWu.JingyouFeiZhao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
