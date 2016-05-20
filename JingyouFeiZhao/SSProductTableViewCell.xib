@@ -18,6 +18,10 @@
                         <rect key="frame" x="13" y="19" width="105" height="97"/>
                         <gestureRecognizers/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qw0-Rc-HwE">
+                        <rect key="frame" x="210" y="22" width="82" height="30"/>
+                        <state key="normal" title="查看二维码"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYJ-Hh-9Ct">
                         <rect key="frame" x="126" y="89" width="158" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,9 +39,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qw0-Rc-HwE">
-                        <rect key="frame" x="210" y="22" width="82" height="30"/>
-                        <state key="normal" title="查看二维码"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2I-4b-ddD">
+                        <rect key="frame" x="316" y="8" width="19" height="120"/>
+                        <state key="normal" title="&gt;"/>
                     </button>
                 </subviews>
             </tableViewCellContentView>

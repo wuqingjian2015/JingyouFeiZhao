@@ -276,6 +276,11 @@
 
 
 #pragma mark - lifecycle
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self saveProducts];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -433,7 +438,13 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"showProductDetail"]) {
         SSProductDetailTableViewController *detail = (SSProductDetailTableViewController*) segue.destinationViewController;
-        detail.product = [self.searchProductResults objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        NSLog(@"%@", sender);
+        UIButton *button = (UIButton*)sender;
+        UITableViewCell *cell = (UITableViewCell *)button.superview.superview;
+        UILabel* productCodeLabel = [cell viewWithTag:104];
+        
+        detail.product = [self getProductByCode:productCodeLabel.text];
+        //[self.searchProductResults objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
 }
 
