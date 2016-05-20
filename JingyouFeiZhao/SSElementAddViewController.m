@@ -10,6 +10,7 @@
 #import "SSElement.h"
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SSConstants.h"
 
 @interface SSElementAddViewController()
 
@@ -248,6 +249,10 @@
     UITextField *unitField = [self.view viewWithTag:104];
    // UIImageView *imageView = [self.view viewWithTag:105];
     
+    if ([quantityField.text length] == 0 || [quantityField.text floatValue] == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
     
     SSElement *element = [[SSElement alloc] initWithName:nameField.text quantity:[NSNumber numberWithFloat:[quantityField.text floatValue]]  cost:[NSNumber numberWithFloat:[costField.text floatValue]] unit:unitField.text image:self.imageFile];
     NSDictionary *userInfo = @{@"addedElement":element };

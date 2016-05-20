@@ -12,5 +12,9 @@
 
 @interface SSProductTableViewController :UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, strong) SSProduct* productToAdd; 
+@property (nonatomic, strong) SSProduct* productToAdd;
+
+-(void)addProduct:(SSProduct*)productToAdd;
+-(BOOL)saveProducts;
+
 @end

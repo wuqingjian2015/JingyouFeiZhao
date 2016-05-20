@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSDate *createdDate;
 @property (nonatomic, copy) NSMutableArray *composition;
 @property (nonatomic, copy) NSString *productImage;
+@property (nonatomic, copy) NSString *productCode;
 
 -(instancetype)initWithName:(NSString*)name;
 -(instancetype)initWithDict:(NSDictionary*)dict;

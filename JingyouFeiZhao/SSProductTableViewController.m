@@ -12,49 +12,51 @@
 #import "AppDelegate+plistDatabase.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import "SSQRCode.h"
+#import "SSQRCodeView.h"
+#include "SSConstants.h"
+
+
 @interface SSProductTableViewController () 
 
 @property (nonatomic, strong) NSMutableArray *products;
-
+@property (nonatomic, strong) NSMutableArray *searchProductResults;
 @property (nonatomic, strong) SSProduct *pickingProduct;
+@property (nonatomic, strong) UIImage *qrcodeImage;
+@property (nonatomic, assign) BOOL updated;
+@property (nonatomic, assign) BOOL isEdited;
+@property (nonatomic, strong) SSProduct *editingProduct;
+
+@property (nonatomic,strong) UITableViewCell *currentCell;
 
 @end
 
 @implementation SSProductTableViewController
 @synthesize pickingProduct;
-@synthesize productToAdd = _productToAdd; 
-
-#pragma mark - UIImagePickerControllerDelegate
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-
-   NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSUUID *uuid = [NSUUID UUID];
-
-    NSString *newName = [NSString stringWithFormat:@"Product_%@.png", [uuid UUIDString]];
-    NSString *newPath = [path stringByAppendingPathComponent:newName];
-
-    UIImage *image= info[UIImagePickerControllerEditedImage];
-    NSData *imageData = UIImagePNGRepresentation(image);
-    
-    if ([imageData writeToFile:newPath atomically:YES]) {
-        self.pickingProduct.productImage = newName;
-        [self.tableView reloadData];
-        NSLog(@"save file successfully to %@", newPath);
-    } else {
-        NSLog(@"failed to save file to %@", newPath);
-    }
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-}
+@synthesize productToAdd = _productToAdd;
+@synthesize qrcodeImage;
+@synthesize updated;
+@synthesize editingProduct = _editingProduct;
+@synthesize isEdited;
+@synthesize searchProductResults = _searchProductResults;
+@synthesize currentCell;
 
 #pragma mark - properties
+
+-(void)setEditingProduct:(SSProduct *)editingProduct
+{
+    _editingProduct = editingProduct;
+}
+
+-(SSProduct*)editingProduct
+{
+    return _editingProduct;
+}
 
 -(void)setProductToAdd:(SSProduct *)productToAdd
 {
     if (productToAdd) {
         _productToAdd = productToAdd;
-        [self.products addObject:productToAdd];
     }
 }
 
@@ -67,9 +69,27 @@
     if (!_products) {
         AppDelegate *app = [[UIApplication sharedApplication] delegate];
         _products = app.productPlistDatabase;
+        updated = YES;
     }
     return _products;
 }
+
+-(NSMutableArray*)searchProductResults
+{
+    if (!_searchProductResults || updated ) {
+        _searchProductResults = [self.products mutableCopy];
+        updated = NO;
+    }
+    NSLog(@"getting search product result : %@", _searchProductResults);
+    return _searchProductResults;
+}
+
+-(void)setSearchProductResults:(NSMutableArray *)searchProductResults
+{
+    _searchProductResults = [searchProductResults mutableCopy];
+    updated = NO;
+}
+
 - (IBAction)startChangeImageWithPicker:(UILongPressGestureRecognizer *)sender {
 
     
@@ -134,22 +154,126 @@
 }
 
 #pragma mark - operation
--(void)addProduction:(NSNotification*)notification
+
+-(SSProduct*)getProductByCode:(NSString*)code
 {
-    NSArray *selectedElements = notification.userInfo[@"selectedElements"];
-    if (selectedElements) {
-        SSProduct *product = [[SSProduct alloc] init];
-        product.productName = [NSString stringWithFormat:@"精油皂＃%u", self.products.count + 1];
-        product.createdDate = [NSDate date];
-        NSMutableArray *arraym = [[NSMutableArray alloc] init];
-        for (SSElement *element in selectedElements) {
-            [arraym addObject:[element dictionaryValue]];
+    SSProduct *result = nil;
+    for (SSProduct *product in self.products) {
+        if ([product.productCode isEqualToString:code]) {
+            result = product;
+            break;
         }
-        product.composition = [arraym copy];
-        [self.products addObject:product];
-        [self.tableView reloadData];
+    }
+    return result;
+}
+-(BOOL)updateProductInDatabase:(SSProduct*)product
+{
+    for (SSProduct *p in self.products) {
+        if ([product.productCode isEqualToString:p.productCode]) {
+            p.productName = product.productName;
+            return YES;
+        }
+    }
+    return NO;
+}
+- (IBAction)startEditProductName:(UITextField *)sender {
+    
+    self.currentCell = (UITableViewCell*)sender.superview.superview;
+    
+}
+
+- (IBAction)dismissKeyboardByTap:(UITapGestureRecognizer*)sender {
+
+    if(self.currentCell){
+        UITextField *nameTextField = [self.currentCell.contentView viewWithTag:102];
+        [nameTextField resignFirstResponder];
+        
+        UILabel* productCodeLabel = [self.currentCell.contentView viewWithTag:104];
+        if ([nameTextField.text length] > 0) {
+            self.editingProduct = [self getProductByCode:productCodeLabel.text];
+            self.editingProduct.productName = nameTextField.text;
+            [self updateProductInDatabase:self.editingProduct];
+        }
     }
 }
+
+-(void)addProduct:(SSProduct*)productToAdd
+{
+    self.productToAdd = productToAdd;
+    [self.products addObject:self.productToAdd];
+    updated = YES;
+    NSLog(@"add product %@", productToAdd);
+}
+
+-(void)removeProductAtIndex:(NSIndexPath*)indexPath
+{
+    SSProduct *product = [self.searchProductResults objectAtIndex:indexPath.row];
+    SSProduct *tempProduct = [self getProductByCode:product.productCode];
+    [self.searchProductResults removeObject:product];
+    [self.products removeObject:tempProduct];
+}
+
+-(void)searchProduct:(NSNotification*)notification
+{
+    NSLog(@"search product:");
+    NSString *productCodeToSearch = notification.userInfo[@"productCodeToSearch"];
+    if (productCodeToSearch) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productCode like[cd] %@", productCodeToSearch];
+        
+       self.searchProductResults = [[self.products filteredArrayUsingPredicate:predicate] mutableCopy];
+        
+       [self.tableView reloadData];
+        
+        //cancel bar
+        UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelSearch:)];
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+        
+    }
+}
+- (IBAction)cancelSearch:(id)sender {
+    self.searchProductResults = [self.products copy];
+    [self.tableView reloadData];
+    
+    self.navigationItem.leftBarButtonItem = nil;
+    
+}
+
+- (IBAction)shareImage:(id)sender {
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *tempFile = [path stringByAppendingPathComponent:@"test.png"];
+    NSData *date =  UIImagePNGRepresentation(self.qrcodeImage);
+    NSError *error = nil;
+    if([[NSFileManager defaultManager] fileExistsAtPath:tempFile]){
+        [[NSFileManager defaultManager] removeItemAtPath:tempFile error:&error];
+    }
+    NSAssert([date writeToFile:tempFile atomically:YES], @"failed to save temp file %@", tempFile) ;
+    NSArray *objectToShare = @[self.qrcodeImage];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectToShare applicationActivities:nil];
+    
+    NSArray *excludedActivities = [[NSArray alloc] initWithObjects: UIActivityTypePrint, UIActivityTypePostToVimeo, UIActivityTypeAddToReadingList, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypePostToTwitter, UIActivityTypePostToFacebook, UIActivityTypeAssignToContact, UIActivityTypePostToFlickr, nil];
+    
+    activityVC.excludedActivityTypes = excludedActivities;
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+- (IBAction)viewErWeiMa:(id)sender {
+    
+    SSQRCodeView *codeView = [[[NSBundle mainBundle] loadNibNamed:@"SSQRCodeView" owner:nil options:nil] firstObject];
+    [self.view.superview addSubview:codeView];
+    [codeView.shareButton addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    codeView.frame = CGRectMake(0, 0, 200, 200);
+    codeView.center = CGPointMake(kScreenWidth / 2, kScreenHeight / 2);
+    UIButton *button = (UIButton*)sender;
+
+    UITableViewCell *cell = (UITableViewCell *)button.superview;
+    NSString *productCode = [[cell viewWithTag:104] text];
+    codeView.previewImageView.image = [SSQRCode qRCodeImageFromString:productCode withQualityLevel:@"Q" toFitFrame:codeView.previewImageView.frame];
+    
+    self.qrcodeImage = [codeView.previewImageView.image copy];
+}
+
 
 #pragma mark - lifecycle
 - (void)viewDidLoad {
@@ -162,27 +286,37 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addProduction:) name:kSSProductAddOperationNotification object:nil];
+ //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addProduction:) name:kSSProductAddOperationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchProduct:) name:kSSProductSearchOperationNotification object:nil];
+    updated = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)saveProducts
+- (BOOL)saveProducts
 {
     if ([[[UIApplication sharedApplication] delegate] respondsToSelector:@selector(saveProducts:)]) {
         [[[UIApplication sharedApplication] delegate] performSelector:@selector(saveProducts:) withObject:self.products];
+        return YES;
     }
+    return NO; 
 }
 
 - (void)dealloc
 {
     [self saveProducts];
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSProductAddOperationNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSProductAddOperationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSSProductSearchOperationNotification object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+ //   updated = YES;
+ //   [self.tableView reloadData];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -190,7 +324,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.products count];
+    return [self.searchProductResults count];
 }
 
 
@@ -201,20 +335,24 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusedIdentifier];
     }
-    SSProduct *product = [self.products objectAtIndex:indexPath.row];
+    SSProduct *product = [self.searchProductResults objectAtIndex:indexPath.row];
 
     UIImageView *imageView = [cell viewWithTag:101];
     imageView.image = [UIImage imageNamed:product.productImage];
     
-    UILabel *nameLable = [cell viewWithTag:102];
-    nameLable.text = product.productName;
+    UITextField *nameTextField = [cell viewWithTag:102];
+    nameTextField.text = product.productName;
     
     UILabel *dateLable = [cell viewWithTag:103];
   
     dateLable.text = [NSDateFormatter localizedStringFromDate:product.createdDate dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
-    [dateLable sizeToFit];
     
+    UILabel *codeLabel = [cell viewWithTag:104];
+    codeLabel.text = product.productCode;
     // Configure the cell...
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardByTap:)];
+    [cell addGestureRecognizer:tapGesture];
     
     return cell;
 }
@@ -236,12 +374,12 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.products removeObjectAtIndex:indexPath.row];
+        [self removeProductAtIndex:indexPath];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         NSArray *insertIndexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        [self.products insertObject:[[SSProduct alloc] init] atIndex:indexPath.row];
+        [self.searchProductResults insertObject:[[SSProduct alloc] init] atIndex:indexPath.row];
         [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationRight];
         NSLog(@"editing.");
     }   
@@ -262,6 +400,30 @@
 }
 */
 
+#pragma mark - UIImagePickerControllerDelegate
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSUUID *uuid = [NSUUID UUID];
+    
+    NSString *newName = [NSString stringWithFormat:@"Product_%@.png", [uuid UUIDString]];
+    NSString *newPath = [path stringByAppendingPathComponent:newName];
+    
+    UIImage *image= info[UIImagePickerControllerEditedImage];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    
+    if ([imageData writeToFile:newPath atomically:YES]) {
+        self.pickingProduct.productImage = newName;
+        [self.tableView reloadData];
+        NSLog(@"save file successfully to %@", newPath);
+    } else {
+        NSLog(@"failed to save file to %@", newPath);
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 #pragma mark - Navigation
 
@@ -271,7 +433,7 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"showProductDetail"]) {
         SSProductDetailTableViewController *detail = (SSProductDetailTableViewController*) segue.destinationViewController;
-        detail.product = [self.products objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        detail.product = [self.searchProductResults objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
 }
 

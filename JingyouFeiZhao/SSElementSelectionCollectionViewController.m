@@ -11,6 +11,8 @@
 #import "AppDelegate+plistDatabase.h"
 #import "SSProductTableViewController.h"
 #import "SSElementSelectViewController.h"
+#import "SSConstants.h"
+
 @interface SSElementSelectionCollectionViewController ()
 
 
@@ -81,8 +83,10 @@ static NSString * const reuseIdentifier = @"elementSelectCell";
     SSElement *selectedElement = notification.userInfo[@"selectedElement"];
     
     if(selectedElement){
-        [self.selectedElements addObject:selectedElement];
-        NSLog(@"add %@", selectedElement);
+        if ([selectedElement.quantity intValue] > 0) {
+            [self.selectedElements addObject:[selectedElement dictionaryValue]];
+            NSLog(@"add %@", [selectedElement dictionaryValue]);
+        }
     }
 }
 

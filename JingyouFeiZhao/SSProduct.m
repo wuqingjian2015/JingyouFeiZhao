@@ -14,8 +14,43 @@
 @synthesize createdDate = _createdDate;
 @synthesize composition = _composition;
 @synthesize productImage = _productImage;
+@synthesize productCode = _productCode;
 
 #pragma mark - properties
+
+-(NSString*)generateNextProductCode
+{
+    NSString *productCodeKey = @"globalProductCode";
+    NSString *productCode = [[NSUserDefaults standardUserDefaults] objectForKey:productCodeKey];
+    NSString *newProductCode = nil;
+    NSString *prefix = nil;
+    int count = 0;
+    
+    if (productCode) {
+        prefix = [productCode substringToIndex:1];
+        count = [[productCode substringFromIndex:1] intValue];
+    } else {
+        prefix = @"A";
+        count = 10000;
+    }
+    count ++;
+    newProductCode = [NSString stringWithFormat:@"%@%.5d", prefix, count];
+    [[NSUserDefaults standardUserDefaults] setObject:newProductCode forKey:productCodeKey];
+    
+    return newProductCode;
+}
+-(void)setProductCode:(NSString *)productCode
+{
+    _productCode = productCode;
+}
+
+-(NSString*)productCode
+{
+    if (!_productCode || [_productCode length] == 0) {
+        _productCode = [self generateNextProductCode];
+    }
+    return _productCode;
+}
 
 -(void)setProductImage:(NSString *)productImage
 {
@@ -44,6 +79,7 @@
         _createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
         _composition = [aDecoder decodeObjectForKey:@"composition"];
         _productImage = [aDecoder decodeObjectForKey:@"productImage"];
+        _productCode = [aDecoder decodeObjectForKey:@"productCode"];
         
     }
     return self;
@@ -55,6 +91,7 @@
     [aCoder encodeObject:_createdDate forKey:@"createdDate"];
     [aCoder encodeObject:_composition forKey:@"composition"];
     [aCoder encodeObject:_productImage forKey:@"productImage"];
+    [aCoder encodeObject:_productCode forKey:@"productCode"];
 }
 
 
@@ -73,6 +110,7 @@
         _createdDate = [NSDate date];
         _productImage = @"product";
         _composition = [[NSMutableArray alloc] init];
+        _productCode = nil;
     }
     return self;
 }
@@ -91,7 +129,7 @@
 
 -(NSDictionary*)dictionaryValue
 {
-    NSDictionary *productDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.productName, @"productName",self.createdDate, @"createdDate", self.composition, @"composition", self.productImage, @"productImage",  nil];
+    NSDictionary *productDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.productName, @"productName",self.createdDate, @"createdDate", self.composition, @"composition", self.productImage, @"productImage",  self.productCode, @"productCode", nil];
     return [productDict copy];
 }
 

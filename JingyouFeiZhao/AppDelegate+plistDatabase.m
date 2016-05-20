@@ -31,7 +31,6 @@
 -(NSURL*)rootPlistDatabaseUrl
 {
     NSString  *path = [self rootPlistDatabasePath];
-    NSLog(@"%@", path);
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         return [NSURL URLWithString:path];
     } else {
@@ -145,6 +144,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _rootPlistDatabase = [NSDictionary dictionaryWithContentsOfFile:[[self rootPlistDatabaseUrl] path]];
+        NSLog(@"rootPlistDatabase %@", [[self rootPlistDatabaseUrl] path]);
     });
     return _rootPlistDatabase;
 }
@@ -242,7 +242,16 @@
         [elementArray addObject:[element dictionaryValue]];
     }
     root[@"elements"] = [elementArray copy];
-    
+    /*
+    if([[NSFileManager defaultManager] fileExistsAtPath:[self rootPlistDatabasePath]]){
+        NSError *error = nil;
+        if([[NSFileManager defaultManager] removeItemAtPath:[self rootPlistDatabasePath] error:&error])
+        {
+            NSLog(@"Error %@", [error localizedDescription]);
+            return ;
+        }
+    }
+    */
     if ([root writeToFile:[self rootPlistDatabasePath] atomically:YES])
     {
         NSLog(@"save successfully.");

@@ -9,7 +9,10 @@
 #import "SSProductDetailTableViewController.h"
 #import "SSElement.h"
 #import "AppDelegate+plistDatabase.h"
+#import "SSConstants.h"
+#import "SSHeaderView.h"
 
+#import "SSConstants.h"
 
 @interface SSProductDetailTableViewController ()
 
@@ -22,6 +25,19 @@
 @implementation SSProductDetailTableViewController
 
 static NSString *reusedIdentifier  = @"productDetailCell";
+
+#pragma mark - operations
+
+-(void)changeProductName:(NSNotification*)notification
+{
+    NSString *productName = notification.userInfo[@"changedName"];
+    if (productName) {
+        self.product.productName = productName;
+    }
+}
+- (IBAction)dismissKeyBoard:(id)sender {
+
+}
 
 #pragma mark - properties
 -(NSArray*)composition
@@ -66,6 +82,7 @@ static NSString *reusedIdentifier  = @"productDetailCell";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = self.product.productName;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeProductName:) name:kSSProductChangeNameOperationNotification object:nil];
     
 }
 
@@ -128,6 +145,15 @@ static NSString *reusedIdentifier  = @"productDetailCell";
     return view;
 }
 /*
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+   // UIView * view = [[UIView alloc] init];
+    SSHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"SSHeaderView" owner:nil options:nil] firstObject];
+    headerView.titleTextField.text = self.product.productName;
+    return headerView;
+}
+ */
+/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -168,6 +194,7 @@ static NSString *reusedIdentifier  = @"productDetailCell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+
 }
 */
 

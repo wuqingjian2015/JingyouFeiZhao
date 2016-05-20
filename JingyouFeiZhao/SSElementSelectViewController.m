@@ -9,6 +9,7 @@
 #import "SSElementSelectViewController.h"
 
 #import "AppDelegate+plistDatabase.h"
+#import "SSConstants.h"
 
 @interface SSElementSelectViewController ()
 

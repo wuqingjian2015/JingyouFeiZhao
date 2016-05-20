@@ -91,6 +91,26 @@
 }
 -(void)testProductSave
 {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"elements" ofType:@"plist"];
+    NSMutableDictionary *root = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+    NSArray *prodcutArray = root[@"products"];
+    NSMutableArray *arrayModle = [[NSMutableArray alloc] init];
+    for (NSArray* item in prodcutArray) {
+        for (NSDictionary* prodcutDict in item) {
+            NSMutableDictionary *pMutable = [prodcutDict mutableCopy];
+            SSProduct* product = [SSProduct productWithDict:pMutable];
+            [arrayModle addObject:product];
+        }
+    }
+    SSProduct* product = [[SSProduct alloc] initWithName:@"test"];
+    NSMutableArray *newProductArray = [[NSMutableArray alloc] init];
+    [newProductArray addObject:[product dictionaryValue]];
+    
+    root[@"products"] = newProductArray;
+    
+    NSLog(@"%@", path);
+    
+    XCTAssertTrue([root writeToFile:path atomically:YES]);
     
 }
 -(void)testProductCreation

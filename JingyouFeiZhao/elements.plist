@@ -371,42 +371,6 @@
 		</dict>
 	</array>
 	<key>products</key>
-	<array>
-		<dict>
-			<key>productName</key>
-			<string>精油皂</string>
-			<key>productImage</key>
-			<string>product.png</string>
-			<key>createdDate</key>
-			<date>2016-05-14T01:05:06Z</date>
-			<key>composition</key>
-			<array>
-				<dict>
-					<key>elementName</key>
-					<string>侧柏</string>
-					<key>elementImage</key>
-					<string>侧柏</string>
-					<key>quantity</key>
-					<integer>3</integer>
-					<key>cost</key>
-					<integer>0</integer>
-					<key>quantity_unit</key>
-					<string>ml</string>
-				</dict>
-				<dict>
-					<key>elementName</key>
-					<string>罗勒</string>
-					<key>elementImage</key>
-					<string>罗勒</string>
-					<key>quantity</key>
-					<integer>7</integer>
-					<key>cost</key>
-					<integer>0</integer>
-					<key>quantity_unit</key>
-					<string>ml</string>
-				</dict>
-			</array>
-		</dict>
-	</array>
+	<array/>
 </dict>
 </plist>

@@ -5,7 +5,7 @@
 //  Created by caoli on 16/5/18.
 //  Copyright © 2016年 QingjianWu. All rights reserved.
 //
-
+#include "SSConstants.h"
 #import "SSMakeStepsCollectionViewController.h"
 #import "AppDelegate+plistDatabase.h"
 #import "SSElementSelectionCollectionViewController.h"
@@ -107,7 +107,9 @@ static NSString * const reuseIdentifier = @"makeStepCell";
     }
     if ([segue.identifier isEqualToString:@"toProductList"]) {
         SSProductTableViewController* productVC = (SSProductTableViewController*)segue.destinationViewController;
-        productVC.productToAdd = self.productToAdd;
+        //productVC.productToAdd = self.productToAdd;
+        [productVC addProduct:self.productToAdd];
+        [productVC saveProducts];
         self.productToAdd = nil;
     }
 }
