@@ -29,6 +29,8 @@
 
 @property (nonatomic,strong) UITableViewCell *currentCell;
 
+@property (nonatomic, strong) NSString *predicateText;
+
 @end
 
 @implementation SSProductTableViewController
@@ -40,8 +42,23 @@
 @synthesize isEdited;
 @synthesize searchProductResults = _searchProductResults;
 @synthesize currentCell;
+@synthesize predicateText = _predicateText;
+
 
 #pragma mark - properties
+
+-(NSString*)predicateText
+{
+    if (!_predicateText) {
+        _predicateText = [[NSUserDefaults standardUserDefaults] objectForKey:@"predicateText"];
+    }
+    return _predicateText;
+}
+-(void)setPredicateText:(NSString *)predicateText
+{
+    _predicateText = predicateText;
+    [[NSUserDefaults standardUserDefaults] setObject:_predicateText forKey:@"predicateText"];
+}
 
 -(void)setEditingProduct:(SSProduct *)editingProduct
 {
@@ -80,6 +97,7 @@
         _searchProductResults = [self.products mutableCopy];
         updated = NO;
     }
+    NSLog(@"self : %@", self);
     NSLog(@"getting search product result : %@", _searchProductResults);
     return _searchProductResults;
 }
@@ -218,7 +236,8 @@
     NSLog(@"search product:");
     NSString *productCodeToSearch = notification.userInfo[@"productCodeToSearch"];
     if (productCodeToSearch) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productCode like[cd] %@", productCodeToSearch];
+        self.predicateText = [NSString stringWithFormat:@"productCode like[cd] %@", productCodeToSearch];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@", self.predicateText];
         
        self.searchProductResults = [[self.products filteredArrayUsingPredicate:predicate] mutableCopy];
         
@@ -227,13 +246,11 @@
         //cancel bar
         UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelSearch:)];
         self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-        
     }
 }
 - (IBAction)cancelSearch:(id)sender {
     self.searchProductResults = [self.products copy];
     [self.tableView reloadData];
-    
     self.navigationItem.leftBarButtonItem = nil;
     
 }
@@ -268,8 +285,10 @@
     UIButton *button = (UIButton*)sender;
 
     UITableViewCell *cell = (UITableViewCell *)button.superview;
+    NSString *website = @"http://wuqingjian-pc/";
     NSString *productCode = [[cell viewWithTag:104] text];
-    codeView.previewImageView.image = [SSQRCode qRCodeImageFromString:productCode withQualityLevel:@"Q" toFitFrame:codeView.previewImageView.frame];
+    NSString *productPdf = [NSString stringWithFormat:@"%@/%@.pdf", website, productCode];
+    codeView.previewImageView.image = [SSQRCode qRCodeImageFromString:productPdf withQualityLevel:@"Q" toFitFrame:codeView.previewImageView.frame];
     
     self.qrcodeImage = [codeView.previewImageView.image copy];
 }

@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--首页-->
         <scene sceneID="qzw-KP-tT9">
             <objects>
-                <viewController id="wyu-50-C6t" sceneMemberID="viewController">
+                <viewController id="wyu-50-C6t" customClass="SSWelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fKe-nJ-dye"/>
                         <viewControllerLayoutGuide type="bottom" id="NCx-Oi-cwy"/>
@@ -17,32 +18,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZD-7Q-zMa">
-                                <rect key="frame" x="98" y="187" width="125" height="106"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-6n-hmI">
+                                <rect key="frame" x="0.0" y="3" width="320" height="474"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="cQI-Kh-K5q"/>
-                                    <constraint firstAttribute="width" constant="125" id="zQ9-YJ-tGr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="3gM-EK-Sh8"/>
+                                    <constraint firstAttribute="width" constant="320" id="9ib-Ye-82f">
+                                        <variation key="heightClass=compact-widthClass=regular" constant="480"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="320" id="DZW-8N-Q4n">
+                                        <variation key="widthClass=regular" constant="480"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="PKt-pG-r8x"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="Z2S-ez-vOM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="h6Z-cd-mUk"/>
+                                    <constraint firstAttribute="height" constant="474" id="laf-CE-fT9">
+                                        <variation key="widthClass=regular" constant="320"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="474" id="zxC-js-qRq">
+                                        <variation key="heightClass=compact-widthClass=regular" constant="320"/>
+                                    </constraint>
                                 </constraints>
-                                <state key="normal" image="start.png">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bYv-pd-1T5" kind="show" id="2EH-Vg-SFe"/>
-                                </connections>
-                            </button>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3gM-EK-Sh8"/>
+                                        <exclude reference="9ib-Ye-82f"/>
+                                        <exclude reference="PKt-pG-r8x"/>
+                                        <exclude reference="Z2S-ez-vOM"/>
+                                        <exclude reference="h6Z-cd-mUk"/>
+                                        <exclude reference="zxC-js-qRq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="3gM-EK-Sh8"/>
+                                        <include reference="h6Z-cd-mUk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="9ib-Ye-82f"/>
+                                        <exclude reference="DZW-8N-Q4n"/>
+                                        <include reference="PKt-pG-r8x"/>
+                                        <include reference="Z2S-ez-vOM"/>
+                                        <exclude reference="laf-CE-fT9"/>
+                                        <include reference="zxC-js-qRq"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pZD-7Q-zMa" firstAttribute="centerX" secondItem="NLq-I9-TNl" secondAttribute="centerX" id="3HZ-Cp-NU9"/>
-                            <constraint firstItem="pZD-7Q-zMa" firstAttribute="centerY" secondItem="NLq-I9-TNl" secondAttribute="centerY" id="ZaT-hL-5A7"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerY" secondItem="NLq-I9-TNl" secondAttribute="centerY" id="6Es-9n-sNG"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerX" secondItem="NLq-I9-TNl" secondAttribute="centerX" id="BbU-qn-PPg"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="leading" secondItem="NLq-I9-TNl" secondAttribute="leadingMargin" constant="60" id="KpL-SR-gQO">
+                                <variation key="heightClass=compact-widthClass=regular" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerX" secondItem="NLq-I9-TNl" secondAttribute="centerX" id="aZ8-Qt-CZN"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerY" secondItem="NLq-I9-TNl" secondAttribute="centerY" id="bFA-ad-EP5"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerX" secondItem="NLq-I9-TNl" secondAttribute="centerX" id="fGZ-yR-xra"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="top" secondItem="NLq-I9-TNl" secondAttribute="topMargin" constant="-77" id="kdD-cK-eT9">
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerX" secondItem="NLq-I9-TNl" secondAttribute="centerX" id="khq-ZA-NQQ"/>
+                            <constraint firstItem="wP5-6n-hmI" firstAttribute="centerY" secondItem="NLq-I9-TNl" secondAttribute="centerY" id="pcM-mb-mcR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6Es-9n-sNG"/>
+                                <exclude reference="BbU-qn-PPg"/>
+                                <exclude reference="KpL-SR-gQO"/>
+                                <exclude reference="aZ8-Qt-CZN"/>
+                                <exclude reference="kdD-cK-eT9"/>
+                                <exclude reference="khq-ZA-NQQ"/>
+                                <exclude reference="pcM-mb-mcR"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="6Es-9n-sNG"/>
+                                <include reference="aZ8-Qt-CZN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="BbU-qn-PPg"/>
+                                <include reference="KpL-SR-gQO"/>
+                                <exclude reference="bFA-ad-EP5"/>
+                                <exclude reference="fGZ-yR-xra"/>
+                                <include reference="kdD-cK-eT9"/>
+                                <include reference="khq-ZA-NQQ"/>
+                                <include reference="pcM-mb-mcR"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="oLs-HE-t57"/>
+                    <navigationItem key="navigationItem" title="首页" id="oLs-HE-t57">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="HpK-0Q-gjg" colorLabel="IBBuiltInLabel-Purple">
+                            <connections>
+                                <segue destination="bYv-pd-1T5" kind="show" id="MmS-3l-jlf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="wP5-6n-hmI" id="c5y-Qx-7Jd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX3-ot-yXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="-2337"/>
+            <point key="canvasLocation" x="319.5" y="-2678"/>
         </scene>
         <!--制作过程-->
         <scene sceneID="xY4-xt-pRr">
@@ -51,7 +134,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hQQ-9G-r5y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898989898994" green="0.042318630502805377" blue="0.75726261557430929" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IaM-ag-KPG">
                             <size key="itemSize" width="152" height="155"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -100,7 +183,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgg-SQ-Me5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="-1907"/>
+            <point key="canvasLocation" x="449.25" y="-2034"/>
         </scene>
         <!--Element Collection View Controller-->
         <scene sceneID="eUm-Ss-ran">
@@ -109,7 +192,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QsD-xp-deo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OeS-M8-kB0">
                             <size key="itemSize" width="139" height="152"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -176,7 +259,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZP7-y7-XbJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationLevel="1" indentationWidth="10" reuseIdentifier="productCell" rowHeight="119" id="JT8-xX-JAs">
@@ -230,7 +313,7 @@
                                     </subviews>
                                     <gestureRecognizers/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.73109321126032101" green="1" blue="0.33762128687234594" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </tableViewCell>
                         </prototypes>
@@ -263,7 +346,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="965" y="-1015"/>
+            <point key="canvasLocation" x="1203.75" y="-1240.5"/>
         </scene>
         <!--Rcode Reader View Controller-->
         <scene sceneID="GQk-MQ-peT">
@@ -295,7 +378,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -315,7 +398,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" id="pNH-Ih-daz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productDetailCell" rowHeight="103" id="Mfp-W7-6tN">
                                 <rect key="frame" x="0.0" y="92" width="320" height="103"/>
@@ -340,7 +423,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
@@ -447,7 +530,9 @@
         <scene sceneID="ece-sp-hB0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wQd-Kq-vSv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="单精油" image="yes.png" id="v4u-ir-CPP"/>
+                    <tabBarItem key="tabBarItem" tag="10" title="单精油" image="yes.png" id="v4u-ir-CPP">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sJh-GB-3Mx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -460,7 +545,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoK-pv-yCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="-1212"/>
+            <point key="canvasLocation" x="571.5" y="-1438.5"/>
         </scene>
         <!--选择成分-->
         <scene sceneID="hxg-JM-UOt">
@@ -469,7 +554,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zAk-Z4-yWL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.73109321130000005" green="1" blue="0.33762128689999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95864898990000003" green="0.042318630500000003" blue="0.75726261559999997" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nuY-Kv-E2l">
                             <size key="itemSize" width="136" height="154"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
@@ -794,8 +879,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background.JPG" width="650" height="433"/>
         <image name="product2929.png" width="29" height="29"/>
-        <image name="start.png" width="176" height="174"/>
         <image name="yes.png" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
